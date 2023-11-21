@@ -52,11 +52,6 @@
                 </div>
             </div>
             {% empty %}
-<<<<<<< HEAD
-            <h5 style="color: white;">
-                No data found
-            </h5>
-=======
             <p style="
             color: #737373;
             text-align: center;
@@ -65,40 +60,10 @@
             font-size: clamp(11px,1vw,20px);
             padding: 5px;
             ">no data found</p>
->>>>>>> 9d0652500fce892b149aa3c82236028ff16e2c21
             {% endfor %}
 
         </div>
-        <div id="latest_movie_updates">
-
-            <div class="latest_movie_update_container" id="latest_movie_update_container">
-                <h3>Latest Update !</h3>
-                <div class="latest_movie_update_item">
-
-
-
-                    <p>Date: 2023-10-18</p>
-
-
-
-                    <p>We are excited to announce the launch of our new product! This innovative solution will revolutionize the way you [describe the product].</p>
-
-
-                </div>
-                <div class="latest_movie_update_item">
-
-                    <h3>Company News</h3>
-
-                    <p>Date: 2023-10-18</p>
-
-                    <p>We are excited to announce the launch of our new product! This innovative solution will revolutionize the way you [describe the product].</p>
-
-                    </marquee>
-                </div>
-                <!-- Add more initial update items as needed -->
-            </div>
-        </div>
-
+        {% include 'movieupdates.html' %}
     </section>
 
     <!-- pagination ---------------------------------  -->

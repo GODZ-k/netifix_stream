@@ -5,16 +5,9 @@ from django.core.paginator import Paginator
 # Create your views here.
 def home(request):
     # pagination and search
-    item=movie.objects.all()
-    if request.method == 'GET':
-      search=request.GET.get('search','')
-      if search != None:
-       item=movie.objects.filter(name__icontains=search)
-    paginatordata=Paginator(item,1)
-    page_no=request.GET.get("page")
-    finaldata=paginatordata.get_page(page_no)
-    lastpage=finaldata.paginator.num_pages
-    total_page_no=[n+1 for n in range(lastpage)]
+    _items=movie.objects.all()
+    searching_pagination=search_pagination(request,_items)
+
     # hot thrills
     hot_thrill_data_dict=hot_thirill_data()
     # recommanded poster
@@ -28,10 +21,7 @@ def home(request):
 
     data={
         # pagination and search
-        "items": finaldata,
-        "lastpage":lastpage,
-        "total_page_no":total_page_no,
-        "search":search,
+        **searching_pagination,
        # hot thrills
         **hot_thrill_data_dict,
         # recommanded poster
@@ -110,85 +100,65 @@ def About(request):
     return render(request,"About.html")
 
 def Netflix(request):
-    items=movie.objects.filter(tags__name="Netflix")
-    if request.method == 'GET':
-        search=request.GET.get('search','')
-        if search != '':
-            items=movie.objects.filter(tags__name__icontains=search)
+    _items=movie.objects.filter(tags__name="Netflix")
+    searching_pagination=search_pagination(request,_items)
 
-    paginatordata=Paginator(items,1)
-    page_no=request.GET.get("page")
-    finaldata=paginatordata.get_page(page_no)
-    lastpage=finaldata.paginator.num_pages
-    total_page_no=[n+1 for n in range(lastpage)]
     data={
-        "items": finaldata,
-        "lastpage":lastpage,
-        "total_page_no":total_page_no,
-        "search":search,
+        **searching_pagination
     }
+
     return render(request,"Netflix.html",data)
 
 def disneyplus(request):
-    items=movie.objects.filter(tags__name="Disney+")
-    if request.method == 'GET':
-        search=request.GET.get('search','')
-        if search != '':
-            items=movie.objects.filter(tags__name__icontains=search)
+    _items=movie.objects.filter(tags__name="Disney+")
+    searching_pagination=search_pagination(request,_items)
 
-    paginatordata=Paginator(items,1)
-    page_no=request.GET.get("page")
-    finaldata=paginatordata.get_page(page_no)
-    lastpage=finaldata.paginator.num_pages
-    total_page_no=[n+1 for n in range(lastpage)]
     data={
-        "items": finaldata,
-        "lastpage":lastpage,
-        "total_page_no":total_page_no,
-        "search":search,
+        **searching_pagination
     }
+
     return render(request,"disney+.html",data)
 
 
 def Amazonprime(request):
-    items=movie.objects.filter(tags__name="Prime")
-    if request.method == 'GET':
-        search=request.GET.get('search','')
-        if search != '':
-            items=movie.objects.filter(tags__name__icontains=search)
+    _items = movie.objects.filter(tags__name="Prime")
+    searching_pagination=search_pagination(request,_items)
 
-    paginatordata=Paginator(items,1)
-    page_no=request.GET.get("page")
-    finaldata=paginatordata.get_page(page_no)
-    lastpage=finaldata.paginator.num_pages
-    total_page_no=[n+1 for n in range(lastpage)]
     data={
-        "items": finaldata,
-        "lastpage":lastpage,
-        "total_page_no":total_page_no,
-        "search":search,
+        **searching_pagination
     }
+
     return render(request,"Amazonprime.html",data)
 
 def Browse(request):
     return render(request,"Browse.html")
 
 def HBO(request):
-    items=movie.objects.filter(tags__name="HBO")
+    _items=movie.objects.filter(tags__name="HBO")
+    searching_pagination=search_pagination(request,_items)
+
+    data={
+        **searching_pagination
+    }
+
+    return render(request,"HBO.html",data)
+
+# searching and pagination functions for tags items
+def search_pagination(request,_items):
+    items=_items   # for better understanding
     if request.method == 'GET':
         search=request.GET.get('search','')
         if search != '':
-            items=movie.objects.filter(tags__name__icontains=search)
+            items = _items.filter(name__icontains=search)
 
     paginatordata=Paginator(items,1)
     page_no=request.GET.get("page")
     finaldata=paginatordata.get_page(page_no)
     lastpage=finaldata.paginator.num_pages
     total_page_no=[n+1 for n in range(lastpage)]
-    data={
+    return {
         "items": finaldata,
         "lastpage":lastpage,
         "total_page_no":total_page_no,
         "search":search,
     }
-    return render(request,"HBO.html",data)

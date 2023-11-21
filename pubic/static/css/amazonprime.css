@@ -1,0 +1,76 @@
+/* #header {
+    background-color: rgba(0, 0, 0, 0.9) black;
+    position: sticky !important;
+} */
+
+#amazonprime-content {
+    min-height: 100vh;
+    background: url(/media/media/amazonprime.jpg) rgba(0, 0, 0, 0.65) no-repeat center;
+    background-size: cover;
+    background-blend-mode: darken;
+    padding: 80px 20px;
+}
+
+#amazonheadercontent {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 10px 20px;
+    align-items: center;
+}
+
+#amazonheadercontent>h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(14px, 4vw, 30px);
+    color: #6f6f6f;
+}
+
+#amazonheadercontent>img {
+    width: clamp(80px, 19vw, 170px);
+    filter: invert(1);
+}
+
+
+/* #amazonprime-content .latest-movies {
+    padding: 0;
+} */
+
+
+/* #amazonprime-content .movie-container {
+    height: clamp(17px, 27vw, 146px);
+    width: clamp(26px, 47vw, 260px);
+    align-items: flex-start;
+} */
+
+
+/* #amazonprime-content .video-popup>#videoIframe {
+    height: clamp(243px, 33vw, 788px);
+    width: clamp(879px, 7vw, 131px);
+} */
+
+#amazonprime-content .movie-container:hover {
+    transform: translateY(-10px);
+}
+
+.latest-movies {
+    width: 100%;
+    justify-content: center;
+    padding: 0 clamp(55px, 5vw, 50px);
+}
+
+.movie-container {
+    justify-content: center;
+}
+
+
+/* #amazonprime-content .movie-container .sub-container-desc {
+    top: -15%;
+} */
+
+@media (max-width: 550px) {
+    #amazonprime-content {
+        padding: 10px 0px;
+    }
+    #amazonprime-content .movie-container:hover {
+        transform: none;
+    }
+}

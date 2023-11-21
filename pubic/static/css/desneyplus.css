@@ -1,0 +1,73 @@
+    /* #header {
+    background-color: black !important;
+    position: sticky !important;
+} */
+
+    #disney-content {
+        background: url(https://images.unsplash.com/photo-1528041119984-da3a9f8d04d1?auto=format&fit=crop&q=80&w=2009&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) rgba(0, 0, 0, 0.8);
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        background-blend-mode: darken;
+        background-size: cover;
+        background-position: center;
+        padding: 80px 20px;
+    }
+
+    #disney-content .header-link {
+        margin: 0 20px 10px 20px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #disney-content .header-link>img {
+        /* color: rgb(255 0 0); */
+        /* font-size: clamp(30px, 6vw, 70px); */
+        /* font-weight: 700; */
+        width: clamp(50px, 17vw, 99px);
+    }
+
+    #disney-content .header-link>h2 {
+        font-family: 'Nunito', sans-serif;
+        font-size: clamp(14px, 4vw, 30px);
+        color: #6f6f6f;
+    }
+    /* #disney-content .latest-movies {
+padding: 0;
+} */
+    /*
+#disney-content .movie-container {
+height: clamp(17px, 27vw, 146px);
+width: clamp(26px, 47vw, 260px);
+align-items: flex-start;
+} */
+    /* #disney-content .video-popup>#videoIframe {
+height: clamp(243px, 33vw, 788px);
+width: clamp(879px, 7vw, 131px);
+} */
+
+    #disney-content .movie-container:hover {
+        transform: translateY(-10px);
+    }
+    /* #disney-content .movie-container .sub-container-desc {
+top: -15%;
+} */
+
+    .latest-movies {
+        width: 100%;
+        justify-content: center;
+        padding: 0 clamp(55px, 5vw, 50px);
+    }
+
+    .movie-container {
+        justify-content: center;
+    }
+
+    @media (max-width: 550px) {
+        #disney-content {
+            padding: 10px 0px;
+        }
+        #disney-content .movie-container:hover {
+            transform: none;
+        }
+    }

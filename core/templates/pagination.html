@@ -1,0 +1,46 @@
+<nav aria-label="..." class="pagination-container">
+    <ul class="pagination justify-content-center">
+
+        <!-- previous section -->
+
+        {% if items.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1"> first </a>
+          </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ items.previous_page_number }}">Previous</a>
+        </li>
+        {% endif %}
+
+
+      <!-- middle section  -->
+
+      {% for i in total_page_no %}
+      {% if items.number == i %}
+      <li class="page-item"><a class="page-link active">{{ i }}</a></li>
+      {% elif i > items.number|add:'-2' and i < items.number|add:'2' %}
+      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+    {% endif %}
+      {% endfor %}
+
+      {% if items.paginator.num_pages > items.number|add:'2' %}
+      <li class="page-item">
+        <a class="page-link">&hellip;</a>
+      </li>
+       <li class="page-item">
+        <a class="page-link" href="?page={{ items.paginator.num_pages }}">{{ items.paginator.num_pages }}</a>
+      </li>
+      {% endif %}
+
+    <!-- next section-->
+
+        {% if items.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{items.next_page_number}}">Next</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{lastpage}}"> Last </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

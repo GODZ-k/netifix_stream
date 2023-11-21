@@ -1,0 +1,493 @@
+{% extends 'base.html' %}
+
+{% block Start %}
+<section class="movie-description">
+
+    <div class="movie-name">
+        <h2>{{items.name}}</h2>
+        <div class="movie-rating">
+            <span>{{items.movie_match}}% Match</span>
+            <span style="text-transform: uppercase;">{{items.movie_grade}}</span>
+            <span>{{items.movie_duration}}</span>
+        </div>
+    </div>
+    <div class="movie-poster-trailer">
+        <div class="movie-poster">
+            <img src="{{items.poster_portrait}}" alt="">
+
+        </div>
+        <div class="movie-info">
+            <div class="movie-catagory">
+                {% for category in items.category.all|slice:"3"  %}
+            <button><a href="#">{{category.category}}</a></button>
+            {% endfor %}
+            </div>
+            <div class="movie-info-detail">
+                <p>{{items.description}}</p>
+            </div>
+        </div>
+        <div class="movie-trailler">
+            <iframe src="https://www.youtube.com/embed/{{items.movie_trailler}}?vq=hd1080&autoplay=1&loop=1&modestbranding=1&rel=0&iv_load_policy=3&fs=0&disablekb=1&mute=1&playlist={{items.movie_trailler}}" title="{{items.name}}" frameborder="0"></iframe>
+        </div>
+    </div>
+    <div class="main-frame-movie-catagory">
+
+        <div class="main-movie-catagory">
+            {% for category in items.category.all|slice:"3"  %}
+            <button><a href="#">{{category.category}}</a></button>
+            {% endfor %}
+        </div>
+        <div class="main-movie-desc">
+<p>{{items.description}}</p>
+</div>
+    </div>
+    <!-- detail section  -->
+    <div class="special-thanks">
+        <ul>
+            <li><span>Release date</span>
+                <ul>
+                    <li>{{items.released_at}}</li>
+                </ul>
+            </li>
+            <li><span>Director</span>
+                <ul>
+                    <li>{{items.director}}</li>
+
+                </ul>
+            </li>
+            <li><span>Distibuted by</span>
+                <ul>
+                    <li>{{items.tags.name}}</li>
+                </ul>
+            </li>
+            <li><span>Cast</span>
+                <ul>
+                    <li>{{items.cast}}</li>
+
+                </ul>
+            </li>
+            <li><span>Language</span>
+                <ul>
+                    <li>{{items.language}}</li>
+                </ul>
+            </li>
+            <li><span>Subtitle</span>
+                <ul>
+                    <li>{{items.subtitle}}</li>
+                </ul>
+            </li>
+            <li><span>Quality</span>
+                <ul>
+                    <li>{{items.quality}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- library section  -->
+
+    <div id="movie-library" class="section-p1">
+        <h2>Library</h2>
+        <div class="pre-screenshorts">
+            <div class="screenshort">
+                <img src="{{items.screenshot_1}}" alt="screenshort">
+            </div>
+            <div class="screenshort">
+                <img src="{{items.screenshot_2}}" alt="screenshort">
+            </div>
+            <div class="screenshort">
+                <img src="{{items.screenshot_3}}" alt="screenshort">
+            </div>
+            <div class="screenshort">
+                <img src="{{items.screenshot_4}}" alt="screenshort">
+            </div>
+            <div class="screenshort">
+                <img src="{{items.screenshot_5}}" alt="screenshort">
+            </div>
+            <div class="screenshort">
+                <img src="{{items.screenshot_6}}" alt="screenshort">
+            </div>
+
+        </div>
+    </div>
+</section>
+<div id="movie-download" class="section-p2">
+    <h2>Download</h2>
+
+
+    <p>{{items.update}}</p>
+
+
+    <div class="pre-download">
+        <div class="download">
+            <h1>720p</h1>
+            <span>700mb/E</span>
+            <div class="download-links">
+                <button class="download-btn">
+                    <a href="#">Server 1</a>
+                </button>
+                <button class="download-btn">
+                    <a href="#">Server 2</a>
+                </button>
+            </div>
+        </div>
+        <div class="download">
+            <h1>1080p</h1>
+            <span>1.4MB/E</span>
+
+            <div class="download-links">
+                <button class="download-btn">
+                    <a href="#">Server 1</a>
+                </button>
+                <button class="download-btn">
+                    <a href="#">Server 2</a>
+                </button>
+            </div>
+
+        </div>
+        <div class="download">
+            <h1>2160p 2K</h1>
+            <span>3gb/E</span>
+
+            <div class="download-links">
+                <button class="download-btn">
+                    <a href="#">Server 1</a>
+                </button>
+                <button class="download-btn">
+                    <a href="#">Server 2</a>
+                </button>
+            </div>
+
+        </div>
+        <div class="download">
+            <h1>4K</h1>
+            <span>10gb/E</span>
+
+            <div class="download-links">
+                <button class="download-btn">
+                    <a href="#">Server 1</a>
+                </button>
+                <button class="download-btn">
+                    <a href="https://vgmlinks.fun/thcmvj000330478/?token=MjRqaStKZyt4L0M2dWVWSHljVEFYaUtwUFlKVlJ1N0VFLzdUelU3WkFuNUg4Wm51U1lwR1Y0Yjd4SjNhRWx4aFM4ejUwNXQwZE1USml6cFR0aldOalZnQ1dMNS9IUFZhN09OVWpuUWZjSGVGQlhrL0pHZGhaZDRvN0dyaUFpWElDNm5uQVFVMEo0T0pmd3d4Nk5WenlYR2JZT0ljdkZpRjFvRGk4Mjc0V2F6c09hRkpTVW9kc3dIN21ldkUydlY1aUV4aVNOVE1JRnZidFp6bzFWakNXRmxHRmh3cVg2aldkZ05aeXV6YjBjVzR1SXhVRkg4YU1qb2tURlB6aDArWTc5Zi8xMFN5QjR3bzQ4RjIrTXVRYjdJa21YTkx6RThlZE1vTkRxZzZVVHF4S2JOY3dSS291UnZDUmxQR0hmeHhoMTNSQURSVDhTTk5mMmRlZ1V0ZU53PT0=">server 2</a>
+                </button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+<section style="background-color: black;">
+    <main class="catagory">
+        <h2 class="thumbTitle">Scifi</h2>
+        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <div class="thumbTiles swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+
+            <div class="swiper-button-next"></div>
+        </div>
+    </main>
+    <main class="catagory" >
+        <h2 class="thumbTitle">Scifi</h2>
+        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <div class="thumbTiles swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/sources/r1/cms/prod/7030/1607030-v-924e1d5a7914" alt="loki" />
+                    </a>
+                </div>
+            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+
+            <div class="swiper-button-next"></div>
+        </div>
+    </main>
+
+</section>
+
+{% endblock Start %}

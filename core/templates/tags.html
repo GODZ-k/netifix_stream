@@ -1,0 +1,36 @@
+<section class="catagories-shortcuts">
+
+    {% for movie_tags in movie_tags  %}
+    <main class="catagory">
+        <h2 class="thumbTitle">{{movie_tags.name}}</h2>
+        <div class="thumbTiles swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for items in movie_tags.movie_tags.all  %}
+                <div class="swiper-slide">
+                    <a href="{% url 'detail' items.slug %}">
+                        <img src="{{items.poster_portrait}}" alt="{{items.name}}" title="{{items.name}}" />
+                    </a>
+                </div>
+                {% empty %}
+                <p style="
+                color: #737373;
+                text-align: center;
+                display: block;
+                width: 100%;
+                font-size: clamp(11px,1vw,20px);
+                padding: 5px;
+                ">no data found</p>
+                {% endfor %}
+
+            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+
+            <div class="swiper-button-next"></div>
+        </div>
+    </main>
+    {% endfor %}
+
+</section>

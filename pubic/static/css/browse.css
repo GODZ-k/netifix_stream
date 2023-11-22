@@ -3,14 +3,19 @@
     position: sticky !important;
 } */
 
+    * {
+        /* border: 2px solid red; */
+        transition: all ease 0.2s;
+    }
+
     #browse-content {
         background: url(unsplash.com/random/?Cryptocurrency&1) rgba(0, 0, 0, 0.8);
-        min-height: 100vh;
+        /* height: 100vh; */
         background-repeat: no-repeat;
         background-blend-mode: darken;
         background-size: cover;
         background-position: center;
-        padding: 80px 20px;
+        padding: 80px 0 0 0px;
     }
 
     #browse-content .header-link {
@@ -62,6 +67,150 @@ top: -15%;
     .movie-container {
         justify-content: center;
     }
+    /*  browse --------------------------------  */
+
+    .browse-container {
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .browse-nav-container {
+        height: 100%;
+        width: 15rem;
+        border-right: 1px solid #272727;
+    }
+
+    .browse-container-category {
+        width: 100%;
+        height: 45%;
+    }
+
+    .browse-container-data {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        gap: 2px;
+        padding: 0 10px;
+    }
+
+    .browse-container-data::-webkit-scrollbar {
+        display: none;
+    }
+
+    .browse-container-data a {
+        padding: 12px 15px;
+        border-radius: 5vw;
+        font-size: clamp(13px, 1vw, 17px);
+        font-weight: 600;
+        text-decoration: none;
+        color: #e3e3e3;
+    }
+
+    .browse-container-data a:hover {
+        background: red;
+    }
+
+    .browse-container-title {
+        width: 100%;
+        height: 5%;
+    }
+
+    .browse-container-title p {
+        padding: 0 15px;
+        margin-bottom: 0 !important;
+        color: #474747;
+    }
+
+    .browse-container-tags {
+        width: 100%;
+        height: 45%;
+    }
+
+    .browse-main-container {
+        height: 100vh;
+        width: 100%;
+        overflow-y: scroll;
+    }
+
+    .browse-main-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .browse-main-container-slider {
+        width: 100%;
+        height: 30vw;
+        padding: 0 0 1vw 0;
+    }
+
+    .carousel {
+        height: 100% !important;
+        width: 100% !important;
+    }
+
+    .carousel .carousel-inner {
+        height: 100%;
+        width: 100%;
+    }
+
+    .carousel .carousel-item img {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .browse-main-container-items {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .carousel-control-next,
+    .carousel-control-prev {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: none !important;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        width: 15%;
+        padding: 0;
+        color: #fff;
+        text-align: center;
+        background: 0 0;
+        border: 0;
+        opacity: .5;
+        transition: opacity .15s ease;
+    }
+
+    .browse-main-container-filter {
+        /* background: grey; */
+        min-height: 10px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 1vw;
+        align-items: center;
+    }
+
+    .browse-main-container-filter h5 {
+        color: #d5d5d5;
+        font-size: clamp(10px, 2vw, 18px);
+    }
+
+    .browse-main-container-filter form select {
+        background: black;
+        padding: 6px 3vw;
+        color: white;
+        font-size: clamp(10px, 2vw, 18px);
+        font-weight: 600;
+        outline: none;
+        border-radius: 1vw;
+    }
+
+    .browse-main-container-data-all {}
 
     @media (max-width: 550px) {
         #browse-content {
@@ -71,3 +220,4 @@ top: -15%;
             transform: none;
         }
     }
+    /* hioihu */

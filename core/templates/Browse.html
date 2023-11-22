@@ -5,59 +5,78 @@
     <div class="header-link">
         <h2>Browse whatever you want</h2>
         <img src="https://www.browsemax.com/img/browse-max-h-w-l.svg" alt="browse" border="0">
-
     </div>
-    <div class="latest-movies">
-        {% for items in items  %}
-            <div class="movie-container" title="{{items.movie_title}} ">
-                <div class="sub-movie-container">
-                    <a href="{% url 'detail' items.slug %}">
-                        <img src="{{items.poster_portrait}}" alt="{{items.name}}" />
-                    </a>
+
+    <div class="browse-container">
+        <div class="browse-nav-container">
+          <div class="browse-container-title">
+            <p>Tags</p>
+          </div>
+          <div class="browse-container-category">
+              <div class="browse-container-data">
+               {% for category in category  %}
+                  <a href="">{{category.category}}</a>
+               {% endfor %}
+              </div>
+            </div>
+            <div class="browse-container-title">
+              <p style="padding: 0 15px;">Tags</p>
+            </div>
+            <div class="browse-container-tags">
+             <div class="browse-container-data">
+                 {% for tags in tags  %}
+                   <a href="">{{tags.name}}</a>
+                 {% endfor %}
+              </div>
+            </div>
+        </div>
+        <div class="browse-main-container">
+            <div class="browse-main-container-slider">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="https://images.pexels.com/photos/19101334/pexels-photo-19101334/free-photo-of-girl-playing-soccer.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/19101334/pexels-photo-19101334/free-photo-of-girl-playing-soccer.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/19101334/pexels-photo-19101334/free-photo-of-girl-playing-soccer.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/19101334/pexels-photo-19101334/free-photo-of-girl-playing-soccer.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+                  </div>
                 </div>
-                <div class="sub-container-desc">
-                    <div class="movie-desc-overlay">
-                        <div class="overlay-trailler">
-                            <iframe src="https://www.youtube-nocookie.com/embed/{{items.movie_trailler}}?start=3&end=56&vq=hd1080&autoplay=1&mute=1&loop=1&modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white&disablekb=1&playlist={{items.movie_trailler}}" width="545" height="300" title="{{items.movie_title}}"
-                                frameborder="0"></iframe>
-                        </div>
-                        <div class="overlay-description">
-                            <div class="overlay-trailler-moreinfo-btn">
-                                <button class="watch-trailler-1" data-video-id="{{items.movie_trailler}}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                                    </svg>
-                                </button>
-                                <a href="{% url 'detail' items.slug %}" style="background: none !important;">
-                                    <button style="
-                                    background-color: transparent;
-                                    border: 1px solid white;
-                                    color: white;
-                                    ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg" viewBox="0 0 16 16">
-                                            <path d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z"/>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <h5>{{items.name}}</h5>
-                            </div>
-                            <div class="overlay-movie-info-short">
-                                <span>{{items.movie_match}} Match</span> <span>{{items.movie_grade}}</span>
-                                <span>{{items.movie_duration}}</span>
-                            </div>
-                            <div class="overlay-movie-catagory">
-
-                               {% for category in items.category.all|slice:"3" %}
-                                <span><a href="#">{{category.category}} </a></span>
-                                {% endfor %}
-
-                            </div>
-                        </div>
-                    </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
                 </div>
             </div>
-            {% endfor %}
+            <div class="browse-main-container-items">
+              <div class="browse-main-container-filter">
+                <h5>
+                    Latest Release
+                </h5>
+                <form method="GET">
+                  <select name="filtering" onchange="this.form.submit()">
+                      <option value="none">Filter</option>
+                      <option value="01">Alt 2</option>
+                      <option value="02">Alt 3</option>
+                  </select>
+                </form>
+              </div>
+              <div class="browse-main-container-data-all">
 
+              </div>
+            </div>
+
+        </div>
     </div>
+
 </section>
 {% endblock Start %}

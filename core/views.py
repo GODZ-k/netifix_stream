@@ -131,7 +131,13 @@ def Amazonprime(request):
     return render(request,"Amazonprime.html",data)
 
 def Browse(request):
-    return render(request,"Browse.html")
+    category=Categories.objects.all()
+    tags=Tags.objects.all()
+    data ={
+        "category":category,
+        "tags":tags,
+    }
+    return render(request,"Browse.html",data)
 
 def HBO(request):
     _items=movie.objects.filter(tags__name="HBO")

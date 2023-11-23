@@ -133,9 +133,11 @@ def Amazonprime(request):
 def Browse(request):
     category=Categories.objects.all()
     tags=Tags.objects.all()
+    items=movie.objects.all()
     data ={
         "category":category,
         "tags":tags,
+        "items":items,
     }
     return render(request,"Browse.html",data)
 

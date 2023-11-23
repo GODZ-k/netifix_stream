@@ -60,7 +60,7 @@
             <div class="browse-main-container-items">
               <div class="browse-main-container-filter">
                 <h5>
-                    Latest Release
+                    Continue Watching ...
                 </h5>
                 <form method="GET">
                   <select name="filtering" onchange="this.form.submit()">
@@ -71,7 +71,34 @@
                 </form>
               </div>
               <div class="browse-main-container-data-all">
-
+                <div class="scroll-holder">
+                  <div class="scroll-items">
+                    <p>Latest Release</p>
+                    <div class="scroll-tray">
+                      {% for items in items  %}
+                      <a href="{% url 'detail' items.slug %}" >
+                        <div class="scroll-tray-items">
+                          <div class="scroll-tray-items-image">
+                              <img src="{{items.poster_portrait}}" alt="{{items.name}}">
+                          </div>
+                          <div class="scroll-tray-items-data">
+                            <div class="scroll-tray-items-update">
+                              <p>{{items.updated_at}}</p>
+                            </div>
+                            <div class="scroll-tray-items-name">
+                              <p class="p">{{items.name}}</p>
+                              <p>{{items.movie_year}}</p>
+                            </div>
+                            <div class="scroll-tray-items-tag">
+                             <p>{{items.tags.name}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 

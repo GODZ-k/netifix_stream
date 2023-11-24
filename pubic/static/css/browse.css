@@ -195,6 +195,11 @@ top: -15%;
         align-items: center;
     }
 
+    .browse-main-container-filter>div {
+        display: flex;
+        gap: 1vw;
+    }
+
     .browse-main-container-filter h5 {
         color: #d5d5d5;
         font-size: clamp(10px, 2vw, 18px);
@@ -233,7 +238,7 @@ top: -15%;
     .scroll-tray .scroll-tray-items {
         display: inline-block;
         /* height: clamp(150px, 30vw, 340px); */
-        width: clamp(140px, 25vw, 280px);
+        width: clamp(160px, 27vw, 250px);
         /* box-shadow: 0 0 0px #0c0c0c; */
         background: #0c0c0c;
         border: 1px solid #191919;
@@ -241,17 +246,34 @@ top: -15%;
         border-radius: 8%;
     }
 
+    .scroll-holder:nth-child(1) .scroll-animation {
+        -webkit-animation: scroll 50s linear infinite;
+        animation: scroll 50s linear infinite;
+    }
+
+    .scroll-holder:nth-child(odd) .scroll-animation {
+        -webkit-animation: scroll 140s linear infinite;
+        animation: scroll 140s linear infinite;
+    }
+
+    .scroll-holder:nth-child(even) .scroll-animation {
+        -webkit-animation: scroll 100s linear infinite;
+        animation: scroll 100s linear infinite;
+    }
+
     .scroll-tray .scroll-tray-items .scroll-tray-items-image img {
         height: 100%;
         width: 100%;
         object-fit: cover;
+        border-radius: 8%;
         object-position: top;
     }
 
     .scroll-tray .scroll-tray-items .scroll-tray-items-image {
         background: #0c0c0c;
-        height: clamp(100px, 19vw, 230px);
+        height: clamp(140px, 25vw, 230px);
         width: 100%;
+        padding: 0.5vw;
     }
 
     .scroll-holder {
@@ -312,8 +334,17 @@ top: -15%;
     }
 
     .scroll-tray-items-tag p {
-        color: red;
-        font-size: clamp(15px, 2vw, 19px);
+        color: #3b3d3f;
+        font-size: clamp(11px, 2vw, 15px);
         font-weight: 600;
         text-transform: uppercase;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-250px * 7));
+        }
     }

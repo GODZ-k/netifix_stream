@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from detail.models import *
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 # Create your views here.
 def home(request):
@@ -130,14 +131,41 @@ def Amazonprime(request):
 
     return render(request,"Amazonprime.html",data)
 
-def Browse(request):
+def Browse(request):  # sourcery skip: avoid-builtin-shadow
     category=Categories.objects.all()
-    tags=Tags.objects.all()
-    items=movie.objects.all()
+    all_movies=movie.objects.all()  # this is for year filteration
+    movie_tags=tags()
+    _items=movie.objects.all()
+    if request.method =='GET':
+      category_name=request.GET.get('category','')
+      tag_name=request.GET.get('tags','')
+      year=request.GET.get('year','')
+      sort_by=request.GET.get('filter','')
+
+    if category_name:
+        _items=_items.filter(category__category=category_name)
+    if tag_name:
+        _items=_items.filter(tags__name=tag_name)
+    if year:
+        _items=_items.filter(movie_year=year)
+    if sort_by:
+        if sort_by == 'Latest':
+          _items=_items.order_by('-movie_year')
+        elif sort_by == 'Popular':
+          _items=_items.order_by('-imdb_rating')
+    searching_pagination=search_pagination(request,_items)
+
     data ={
         "category":category,
         "tags":tags,
-        "items":items,
+        **movie_tags,
+        "all_movies":all_movies,
+        "year":year,
+        "sort_by":sort_by,
+        "category_name":category_name,
+        "tag_name":tag_name,
+        # "items":search_pagination,
+        **searching_pagination
     }
     return render(request,"Browse.html",data)
 

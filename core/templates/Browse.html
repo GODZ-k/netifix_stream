@@ -4,7 +4,16 @@
 <section id="browse-content">
     <div class="header-link">
         <h2>Browse whatever you want</h2>
-        <img src="https://www.browsemax.com/img/browse-max-h-w-l.svg" alt="browse" border="0">
+        <div id="search-nav" >
+          <form method="get">
+              <input type="search" name="search" placeholder="Search" autocomplete="on" value="{{search}}" onclick="this.onsubmit()">
+              <button type="submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search svgimg" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </button>
+          </form>
+      </div>
     </div>
 
     <div class="browse-container">
@@ -15,7 +24,7 @@
           <div class="browse-container-category">
               <div class="browse-container-data">
                {% for category in category  %}
-                  <a href="">{{category.category}}</a>
+                  <a href="{% url 'Browse' %}?category={{category.category}}" style="{% if category.category == category_name %} background-color: red; {% endif %}">{{category.category}}</a>
                {% endfor %}
               </div>
             </div>
@@ -24,8 +33,8 @@
             </div>
             <div class="browse-container-tags">
              <div class="browse-container-data">
-                 {% for tags in tags  %}
-                   <a href="">{{tags.name}}</a>
+                 {% for tags in movie_tags  %}
+                   <a href="{% url 'Browse' %}?tags={{tags.name}}" style="{% if tags.name == tag_name %} background-color: red; {% endif %}">{{tags.name}}</a>
                  {% endfor %}
               </div>
             </div>
@@ -62,17 +71,35 @@
                 <h5>
                     Continue Watching ...
                 </h5>
+                <div>
+                  <form method="GET">
+                    <select name="year" onchange="this.form.submit()">
+                      <option value="">Year</option>
+                      {% for item in all_movies  %}
+                         <option value="{{item.movie_year}}">{{item.movie_year}} </option>
+                      {% endfor %}
+                  </select>
+                </form>
                 <form method="GET">
-                  <select name="filtering" onchange="this.form.submit()">
-                      <option value="none">Filter</option>
-                      <option value="01">Alt 2</option>
-                      <option value="02">Alt 3</option>
+                  <select name="filter" onchange="this.form.submit()">
+                    <option value="none">Filter</option>
+                    <option value="Latest"
+                    {% if sort_by == 'Latest' %}
+                      selected
+                    {% endif %}
+                      >Latest</option>
+                    <option value="Popular"
+                    {% if sort_by == 'Popular' %}
+                    selected
+                   {% endif %}>Popular</option>
                   </select>
                 </form>
               </div>
+
+              </div>
               <div class="browse-main-container-data-all">
                 <div class="scroll-holder">
-                  <div class="scroll-items">
+                 <div class="scroll-items">
                     <p>Latest Release</p>
                     <div class="scroll-tray">
                       {% for items in items  %}
@@ -95,9 +122,98 @@
                           </div>
                         </div>
                       </a>
+                      {% empty %}
+                      <p style="
+                      color: #737373;
+                      text-align: center;
+                      display: block;
+                      width: 100%;
+                      font-size: clamp(11px,1vw,20px);
+                      padding: 5px;
+                      ">no data found</p>
                       {% endfor %}
                     </div>
                   </div>
+                  {% include 'pagination.html' %}
+                  </div>
+                <div class="scroll-holder">
+                  {% for tags in movie_tags  %}
+                  <div class="scroll-items">
+                    <p>{{tags.name}}</p>
+                      <div class="scroll-tray">
+                        {% for items in tags.movie_tags.all  %}
+                        <a href="{% url 'detail' items.slug %}" >
+                          <div class="scroll-tray-items scroll-animation">
+                            <div class="scroll-tray-items-image">
+                                <img src="{{items.poster_portrait}}" alt="{{items.name}}">
+                            </div>
+                            <div class="scroll-tray-items-data">
+                              <div class="scroll-tray-items-update">
+                                <p>{{items.updated_at}}</p>
+                              </div>
+                              <div class="scroll-tray-items-name">
+                                <p class="p">{{items.name}}</p>
+                                <p>{{items.movie_year}}</p>
+                              </div>
+                              <div class="scroll-tray-items-tag">
+                               <p>{{items.tags.name}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                        {% empty %}
+                        <p style="
+                        color: #737373;
+                        text-align: center;
+                        display: block;
+                        width: 100%;
+                        font-size: clamp(11px,1vw,20px);
+                        padding: 5px;
+                        ">no data found</p>
+                        {% endfor %}
+                      </div>
+                  </div>
+                  {% endfor %}
+                  </div>
+                <div class="scroll-holder">
+                  {% for category in category  %}
+                  <div class="scroll-items">
+                    <p>{{category.category}}</p>
+                    <div class="scroll-tray">
+                      {% for items in category.categories.all  %}
+                      <a href="{% url 'detail' items.slug %}" >
+                        <div class="scroll-tray-items scroll-animation">
+                          <div class="scroll-tray-items-image">
+                              <img src="{{items.poster_portrait}}" alt="{{items.name}}">
+                          </div>
+                          <div class="scroll-tray-items-data">
+                            <div class="scroll-tray-items-update">
+                              <p>{{items.updated_at}}</p>
+                            </div>
+                            <div class="scroll-tray-items-name">
+                              <p class="p">{{items.name}}</p>
+                              <p>{{items.movie_year}}</p>
+                            </div>
+                            <div class="scroll-tray-items-tag">
+                             <p>{{items.tags.name}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                      {% empty %}
+                      <p style="
+                      color: #737373;
+                      text-align: center;
+                      display: block;
+                      width: 100%;
+                      font-size: clamp(11px,1vw,20px);
+                      padding: 5px;
+                      ">no data found</p>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  {% endfor %}
+
                 </div>
               </div>
             </div>

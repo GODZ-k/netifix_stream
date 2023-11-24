@@ -185,7 +185,21 @@ def search_pagination(request,_items):
     if request.method == 'GET':
         search=request.GET.get('search','')
         if search != '':
-            items = _items.filter(name__icontains=search)
+            items = _items.filter(
+                Q(name__icontains=search)|
+                Q(movie_year__icontains=search)|
+                Q(imdb_rating__icontains=search)|
+                Q(movie_title__icontains=search)|
+                Q(language__icontains=search)|
+                Q(director__icontains=search)|
+                Q(movie_grade__icontains=search)|
+                Q(movie_match__icontains=search)|
+                Q(movie_year__icontains=search)|
+                Q(movie_duration__icontains=search)|
+                Q(description__icontains=search)|
+                Q(tags__name__icontains=search)|
+                Q(category__category__icontains=search)
+                )
 
     paginatordata=Paginator(items,1)
     page_no=request.GET.get("page")
@@ -198,3 +212,7 @@ def search_pagination(request,_items):
         "total_page_no":total_page_no,
         "search":search,
     }
+
+
+def error(request):
+    return render(request,'error404.html')

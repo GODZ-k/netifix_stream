@@ -1524,7 +1524,7 @@ align-items: flex-end; */
     }
     #search-nav input {
         padding: 0.3rem;
-        width: clamp(164px, 33vw, 246px);
+        width: clamp(100px, 33vw, 246px);
         font-size: 13px;
     }
     .hamburger i {

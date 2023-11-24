@@ -15,16 +15,27 @@
           </form>
       </div>
     </div>
-
+    <div class="browse-nav-mobile-container">
+      <div class="browse-nav-mobile-filter">
+        {% for tags in movie_tags  %}
+        <a href="{% url 'Browse' %}?tags={{tags.name}}" style="{% if tags.name == tag_name %} background-color: #d00000; {% endif %}">{{tags.name}}</a>
+        {% endfor %}
+      </div>
+      <div class="browse-nav-mobile-filter">
+        {% for category in category  %}
+        <a href="{% url 'Browse' %}?category={{category.category}}" style="{% if category.category == category_name %} background-color: #d00000; {% endif %}">{{category.category}}</a>
+        {% endfor %}
+      </div>
+    </div>
     <div class="browse-container">
         <div class="browse-nav-container">
           <div class="browse-container-title">
-            <p>Tags</p>
+            <p>Category</p>
           </div>
           <div class="browse-container-category">
               <div class="browse-container-data">
                {% for category in category  %}
-                  <a href="{% url 'Browse' %}?category={{category.category}}" style="{% if category.category == category_name %} background-color: red; {% endif %}">{{category.category}}</a>
+                  <a href="{% url 'Browse' %}?category={{category.category}}" style="{% if category.category == category_name %} background-color: #d00000; {% endif %}">{{category.category}}</a>
                {% endfor %}
               </div>
             </div>
@@ -34,7 +45,7 @@
             <div class="browse-container-tags">
              <div class="browse-container-data">
                  {% for tags in movie_tags  %}
-                   <a href="{% url 'Browse' %}?tags={{tags.name}}" style="{% if tags.name == tag_name %} background-color: red; {% endif %}">{{tags.name}}</a>
+                   <a href="{% url 'Browse' %}?tags={{tags.name}}" style="{% if tags.name == tag_name %} background-color: #d00000; {% endif %}">{{tags.name}}</a>
                  {% endfor %}
               </div>
             </div>
@@ -44,16 +55,16 @@
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="https://images.pexels.com/photos/19101334/pexels-photo-19101334/free-photo-of-girl-playing-soccer.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+                    <img src="http://thediscoverer.columbus.edu.co/wp-content/uploads/2023/02/gggg.jpg" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="https://images.pexels.com/photos/19101334/pexels-photo-19101334/free-photo-of-girl-playing-soccer.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+                    <img src="https://www.businessinsider.in/_next/image?url=https%3A%2F%2Fstaticbiassets.in%2Fthumb%2Fmsid-55550208%2Cwidth-700%2Cresizemode-4%2Cimgsize-42722%2Farrival-nails-how-humans-might-actually-talk-to-aliens-a-linguist-says.jpg&w=1920&q=75" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="https://images.pexels.com/photos/19101334/pexels-photo-19101334/free-photo-of-girl-playing-soccer.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/06e43e32087be701c6200cfc7ef1d49958b285a0deba4ed53ab9d2e16acd88c7._RI_TTW_SX1920_FMwebp_.jpg" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="https://images.pexels.com/photos/19101334/pexels-photo-19101334/free-photo-of-girl-playing-soccer.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+                    <img src="https://www.hollywoodreporter.com/wp-content/uploads/2017/05/alien-covenant-ac_152_00459216_rgb_copy_-_h_2017.jpg?w=1296&h=730&crop=1" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -73,7 +84,7 @@
                 </h5>
                 <div>
                   <form method="GET">
-                    <select name="year" onchange="this.form.submit()">
+                    <select name="year" class="ui fluid dropdown" onchange="this.form.submit()">
                       <option value="">Year</option>
                       {% for item in all_movies  %}
                          <option value="{{item.movie_year}}">{{item.movie_year}} </option>
@@ -81,17 +92,10 @@
                   </select>
                 </form>
                 <form method="GET">
-                  <select name="filter" onchange="this.form.submit()">
-                    <option value="none">Filter</option>
-                    <option value="Latest"
-                    {% if sort_by == 'Latest' %}
-                      selected
-                    {% endif %}
-                      >Latest</option>
-                    <option value="Popular"
-                    {% if sort_by == 'Popular' %}
-                    selected
-                   {% endif %}>Popular</option>
+                  <select name="filter" class="ui fluid dropdown" onchange="this.form.submit()">
+                    <option value="">Sort by</option>
+                    <option value="Latest" {% if sort_by == 'Latest' %} selected {% endif %} >Latest</option>
+                      <option value="Popular" {% if sort_by == 'Popular' %} selected {% endif %}>Popular</option>
                   </select>
                 </form>
               </div>

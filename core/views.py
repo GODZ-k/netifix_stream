@@ -201,7 +201,7 @@ def search_pagination(request,_items):
                 Q(category__category__icontains=search)
                 )
 
-    paginatordata=Paginator(items,1)
+    paginatordata=Paginator(items,50)
     page_no=request.GET.get("page")
     finaldata=paginatordata.get_page(page_no)
     lastpage=finaldata.paginator.num_pages

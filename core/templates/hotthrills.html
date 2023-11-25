@@ -3,8 +3,15 @@
         <div class="carousel-inner" style="background-color:black;">
          {% for items in slideshow %}
             <div class="carousel-item video-slider active" data-bs-interval="10000">
-                <video preload="auto" src="/media/{{items.clip}}" class="video" autoplay loop muted poster="/media/{{items.movie_wallpaper}}">
+
+                {% if not items.clip %}
+                <video preload="auto" src="{{items.clip_url}}" class="video" autoplay loop muted poster="{{items.clip_poster}}">
                 </video>
+                {% else %}
+                <video preload="auto" src="/media/{{items.clip}}" class="video" autoplay loop muted poster="{{items.clip_poster}}">
+                </video>
+                {% endif %}
+
                 <div class="carousel-caption">
                     <div class="procont">
                         <div class="movie-head">

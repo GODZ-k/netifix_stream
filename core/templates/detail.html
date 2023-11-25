@@ -13,7 +13,7 @@
     </div>
     <div class="movie-poster-trailer">
         <div class="movie-poster">
-            <img src="{{items.poster_portrait}}" alt="">
+            <img src="{{items.poster_portrait}}" alt="{{items.name}}">
 
         </div>
         <div class="movie-info">
@@ -179,6 +179,42 @@
 
 </div>
 <section style="background-color: black;">
+    <div class="related-holder">
+        <div class="related-items">
+            <div class="related-tray">
+              {% for items in related_items  %}
+              <a href="{% url 'detail' items.slug %}" >
+                <div class="related-tray-items related-animation">
+                  <div class="related-tray-items-image">
+                      <img src="{{items.poster_portrait}}" alt="{{items.name}}">
+                  </div>
+                  <div class="related-tray-items-data">
+                    <div class="related-tray-items-update">
+                      <p>{{items.updated_at}}</p>
+                    </div>
+                    <div class="related-tray-items-name">
+                      <p class="p">{{items.name}}</p>
+                      <p>{{items.movie_year}}</p>
+                    </div>
+                    <div class="related-tray-items-tag">
+                     <p>{{items.tags.name}}</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              {% empty %}
+              <p style="
+              color: #737373;
+              text-align: center;
+              display: block;
+              width: 100%;
+              font-size: clamp(11px,1vw,20px);
+              padding: 5px;
+              ">no data found</p>
+              {% endfor %}
+            </div>
+        </div>
+      </div>
 </section>
 
 {% endblock Start %}

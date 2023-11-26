@@ -106,7 +106,7 @@
                  <div class="scroll-items">
                     <p>Latest Release</p>
                     <div class="scroll-tray">
-                      {% for items in items  %}
+                    {% for items in items  %}
                       <a href="{% url 'detail' items.slug %}" >
                         <div class="scroll-tray-items">
                           <div class="scroll-tray-items-image">
@@ -135,7 +135,7 @@
                       font-size: clamp(11px,1vw,20px);
                       padding: 5px;
                       ">no data found</p>
-                      {% endfor %}
+                    {% endfor %}
                     </div>
                   </div>
                   {% include 'pagination.html' %}
@@ -178,7 +178,7 @@
                       </div>
                   </div>
                   {% endfor %}
-                </div>
+                 </div>
                 <div class="scroll-holder">
                   {% for category in category  %}
                   <div class="scroll-items">
@@ -218,7 +218,7 @@
                   </div>
                   {% endfor %}
 
-                </div>
+                 </div>
               </div>
             </div>
 

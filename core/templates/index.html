@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block Start %}
-<!-- {% include 'preloader.html' %} -->
+ {% include 'preloader.html' %} 
 
 <!-- hot thrills section -->
 {% include 'hotthrills.html' %}
@@ -46,7 +46,7 @@
             <p class="release-date">
                 {{items.movies.movie_year}}
             </p>
-            <h2>PACAFIC RIM</h2>
+            <h2>{{items.movies.name}}</h2>
             <p class="movie-poster-banner-detail-para">
             {{items.movies.description}}
              </p>
@@ -75,7 +75,7 @@
 <section class="catagories-shortcuts">
     <main class="catagory">
         <h2 class="thumbTitle">Scifi</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -106,7 +106,7 @@
     </main>
     <main class="catagory">
         <h2 class="thumbTitle">Action</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -138,7 +138,7 @@
     </main>
     <main class="catagory">
         <h2 class="thumbTitle">Advanture</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -170,7 +170,7 @@
     </main>
     <main class="catagory">
         <h2 class="thumbTitle">Comedy</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -202,7 +202,7 @@
     </main>
     <main class="catagory">
         <h2 class="thumbTitle">Fantasy</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -255,7 +255,7 @@
             <p class="release-date">
                     {{items.movies.movie_year}}
             </p>
-            <h2>PACAFIC RIM</h2>
+            <h2>{{items.movies.name}}</h2>
             <p class="movie-poster-banner-detail-para">{{items.movies.description}}
             </p>
             <div class="info-trailler-btn movie-poster-banner-detail-btn">
@@ -282,7 +282,7 @@
 <section class="catagories-shortcuts">
     <main class="catagory">
         <h2 class="thumbTitle">Horror</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -313,7 +313,7 @@
     </main>
     <main class="catagory">
         <h2 class="thumbTitle">Thriller</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -345,7 +345,7 @@
     </main>
     <main class="catagory">
         <h2 class="thumbTitle">Mystery</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -377,7 +377,7 @@
     </main>
     <main class="catagory">
         <h2 class="thumbTitle">Romance</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -409,7 +409,7 @@
     </main>
     <main class="catagory">
         <h2 class="thumbTitle">Sports</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -441,7 +441,7 @@
     </main>
     <main class="catagory">
         <h2 class="thumbTitle">History</h2>
-        <span style="text-align: right;"><a href="#" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:16px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:16px;"></i></a></span>
+        <span style="text-align: right;"><a href="{% url 'Browse' %}" style="text-decoration: none; color:rgba(63, 63, 63, 0.883); font-weight:600; font-size:14px;">More<i class="fa-solid fa-chevron-right" style="padding-left:5px; font-size:14px;"></i></a></span>
         <div class="thumbTiles swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -493,7 +493,7 @@
                 <p class="release-date">
                         {{items.movies.movie_year}}
                 </p>
-                <h2>PACAFIC RIM</h2>
+                <h2>{{items.movies.name}}</h2>
                 <p class="movie-poster-banner-detail-para">{{items.movies.description}}
                 </p>
                 <div class="info-trailler-btn movie-poster-banner-detail-btn">

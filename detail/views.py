@@ -1,12 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import *
 
 # Create your views here.
 def detail(request,slug):
-    items=movie.objects.get(slug=slug)
-    related_items=movie.objects.filter(category__in=items.category.all()).exclude(slug=slug)[:30]
+    items = get_object_or_404(movie, slug=slug)
+    related_categories=items.category.all().distinct()
     data={
         "items":items,
-        "related_items":related_items,
-    }
+        "related_categories": related_categories,
+        }
     return render(request,"detail.html",data)

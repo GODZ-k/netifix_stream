@@ -180,9 +180,16 @@
 </div>
 <section style="background-color: black;">
     <div class="related-holder">
+    {% for related_items in related_categories %}
         <div class="related-items">
+            <p style=" 
+            color: #dddddd;
+            padding: 4px 1.5vw;
+            margin: 1vw !important;
+            font-size: clamp(14px, 2vw, 17px);
+        ">{{related_items.category}}</p>
             <div class="related-tray">
-              {% for items in related_items  %}
+              {% for items in related_items.categories.all|slice:":20"  %}
               <a href="{% url 'detail' items.slug %}" >
                 <div class="related-tray-items related-animation">
                   <div class="related-tray-items-image">
@@ -215,6 +222,7 @@
             </div>
         </div>
       </div>
+      {% endfor %}
 </section>
 
 {% endblock Start %}

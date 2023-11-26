@@ -10,6 +10,5 @@ urlpatterns = [
     path("Amazonprime/",Amazonprime,name="amazonprime"),
     path("Browse/",Browse ,name="Browse"),
     path("HBO/",HBO,name="hbo"),
-    path("404/",error, name="error")
 ]
 

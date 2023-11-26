@@ -2,13 +2,13 @@ from django.shortcuts import render
 from detail.models import *
 from django.core.paginator import Paginator
 from django.db.models import Q
+from update.views import *
 
 # Create your views here.
 def home(request):
     # pagination and search
     _items=movie.objects.all()
     searching_pagination=search_pagination(request,_items)
-
     # hot thrills
     hot_thrill_data_dict=hot_thirill_data()
     # recommanded poster
@@ -19,6 +19,8 @@ def home(request):
     movie_tags=tags()
     # trending
     movie_trend=trend()
+    # latest update
+    latest_update_data=latestupdate()
 
     data={
         # pagination and search
@@ -33,6 +35,8 @@ def home(request):
         **movie_tags,
         # category data
         **category_data_dict,
+        # latest update
+        **latest_update_data,
 
     }
     return render(request, "index.html",data)
@@ -101,7 +105,7 @@ def About(request):
     return render(request,"About.html")
 
 def Netflix(request):
-    _items=movie.objects.filter(tags__name="Netflix")
+    _items=movie.objects.filter(tags__name="Netflix").distinct()
     searching_pagination=search_pagination(request,_items)
 
     data={
@@ -111,7 +115,7 @@ def Netflix(request):
     return render(request,"Netflix.html",data)
 
 def disneyplus(request):
-    _items=movie.objects.filter(tags__name="Disney+")
+    _items=movie.objects.filter(tags__name="Disney+").distinct()
     searching_pagination=search_pagination(request,_items)
 
     data={
@@ -122,7 +126,7 @@ def disneyplus(request):
 
 
 def Amazonprime(request):
-    _items = movie.objects.filter(tags__name="Prime")
+    _items = movie.objects.filter(tags__name="Prime").distinct()
     searching_pagination=search_pagination(request,_items)
 
     data={
@@ -170,7 +174,7 @@ def Browse(request):  # sourcery skip: avoid-builtin-shadow
     return render(request,"Browse.html",data)
 
 def HBO(request):
-    _items=movie.objects.filter(tags__name="HBO")
+    _items=movie.objects.filter(tags__name="HBO").distinct()
     searching_pagination=search_pagination(request,_items)
 
     data={
@@ -199,7 +203,7 @@ def search_pagination(request,_items):
                 Q(description__icontains=search)|
                 Q(tags__name__icontains=search)|
                 Q(category__category__icontains=search)
-                )
+                ).distinct()
 
     paginatordata=Paginator(items,50)
     page_no=request.GET.get("page")
@@ -213,6 +217,3 @@ def search_pagination(request,_items):
         "search":search,
     }
 
-
-def error(request):
-    return render(request,'error404.html')

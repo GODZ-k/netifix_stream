@@ -202,6 +202,7 @@ top: -15%;
 
     .browse-main-container-filter h5 {
         color: #d5d5d5;
+        font-weight: 800;
         font-size: clamp(10px, 2vw, 18px);
     }
 
@@ -298,6 +299,7 @@ top: -15%;
     .browse-main-container-data-all .scroll-holder .scroll-items>p {
         color: white;
         padding: 0 1vw;
+        font-weight: 800;
         font-size: clamp(10px, 1vw, 18px);
     }
 

@@ -179,11 +179,61 @@
 
 </div>
 <section style="background-color: black;">
+    <p style="
+    text-align: center;
+    color: #686868;
+    padding: 4px 1.5vw;
+    font-weight: 800;
+    font-size: clamp(14px, 2vw, 50px);">Related items</p>
     <div class="related-holder">
-    {% for related_items in related_categories %}
+           <div class="related-items">
+               <p style="
+               color: #dddddd;
+               padding: 4px 1.5vw;
+               font-weight: 700;
+               margin: 1vw !important;
+               font-size: clamp(14px, 2vw, 17px);
+               ">{{ items.tags.name}}</p>
+               <div class="related-tray">
+                 {% for items in related_tags  %}
+                 <a href="{% url 'detail' items.slug %}" >
+                   <div class="related-tray-items related-animation">
+                     <div class="related-tray-items-image">
+                         <img src="{{items.poster_portrait}}" alt="{{items.name}}">
+                     </div>
+                     <div class="related-tray-items-data">
+                       <div class="related-tray-items-update">
+                         <p>{{items.updated_at}}</p>
+                       </div>
+                       <div class="related-tray-items-name">
+                         <p class="p">{{items.name}}</p>
+                         <p>{{items.movie_year}}</p>
+                       </div>
+                       <div class="related-tray-items-tag">
+                        <p>{{items.tags.name}}</p>
+                       </div>
+                     </div>
+                   </div>
+                 </a>
+                 {% empty %}
+                 <p style="
+                 color: #737373;
+                 text-align: center;
+                 display: block;
+                 width: 100%;
+                 font-size: clamp(11px,1vw,20px);
+                 padding: 5px;
+                 ">no data found</p>
+                 {% endfor %}
+               </div>
+           </div>
+    </div>
+    <div class="related-holder">
+     {% for related_items in related_categories %}
         <div class="related-items">
-            <p style=" 
+            <p style="
             color: #dddddd;
+            font-weight: 700;
             padding: 4px 1.5vw;
             margin: 1vw !important;
             font-size: clamp(14px, 2vw, 17px);
@@ -221,8 +271,8 @@
               {% endfor %}
             </div>
         </div>
-      </div>
-      {% endfor %}
+     {% endfor %}
+    </div>
 </section>
 
 {% endblock Start %}

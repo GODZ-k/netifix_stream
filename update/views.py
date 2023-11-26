@@ -7,3 +7,9 @@ def latestupdate():
     return {
         "update": update,
     }
+
+def browse():
+    update=Browse_update.objects.all()
+    return{
+      "update": update,
+    }

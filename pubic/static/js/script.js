@@ -284,7 +284,7 @@ updateContainer.addEventListener('mouseleave', () => {
 // catagories slider
 
 
-var mySwiper = new Swiper('.swiper', {
+let mySwiper = new Swiper('.swiper', {
     // Optional parameters
     spaceBetween: 8,
     slidesPerView: 2,

@@ -410,6 +410,7 @@ font-size: 14px !important;
     object-fit: cover;
     display: flex;
     z-index: -1;
+    height: 100%;
     /* position: relative; */
     justify-content: center;
     align-items: center;
@@ -1346,13 +1347,13 @@ align-items: flex-end; */
         height: 100vh;
         box-shadow: 0 40px 69px rgba(0, 0, 0, 0.1);
         background-color: #000000e8;
-        width: 320px;
+        width: clamp(232px, 30vw, 319px);
         padding: 80px 0 0 20px;
         transition: all ease 0.3s;
     }
     #navbar #close {
         display: block;
-        left: 250px;
+        left: clamp(187px, 24vw, 277px);
         transition: all ease 0.2s;
     }
     #navbar.active {
@@ -1531,7 +1532,7 @@ align-items: flex-end; */
         font-size: 1rem;
     }
     .carousel-caption .procont .movie-head {
-        padding-bottom: 10% !important;
+        padding-bottom: 10%;
     }
     /* .netflix {
     width: 122px;

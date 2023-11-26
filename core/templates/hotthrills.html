@@ -3,7 +3,6 @@
         <div class="carousel-inner" style="background-color:black;">
          {% for items in slideshow %}
             <div class="carousel-item video-slider active" data-bs-interval="10000">
-
                 {% if not items.clip %}
                 <video preload="auto" src="{{items.clip_url}}" class="video" autoplay loop muted poster="{{items.clip_poster}}">
                 </video>
@@ -16,8 +15,6 @@
                     <div class="procont">
                         <div class="movie-head">
                             <div class="moviedescription">
-
-
                                 {% if not items.text %}
                                   {% if items.text_image %}
                                     <img style="height: clamp(14px, 12vw, 150px);" src="{{ items.text_image }}" alt="{{ items.movies.name }}">
@@ -27,9 +24,6 @@
                                 {% else %}
                                     <h1 style="color: {{ items.name_color }};">{{ items.text }}</h1>
                                 {% endif %}
-
-
-
                                 <p>{{items.movies.description}}</p>
                                 <div class="time-imdb-rating">
 
@@ -45,7 +39,6 @@
 
                                 <div class="catogery">
                                     <ul>
-
                                         {% for category in items.movies.category.all|slice:"3" %}
                                         <li>
                                             <a href="#">{{ category.category }}</a>
@@ -61,24 +54,25 @@
                                           </svg>
                                           Watch Trailler
                                     </button>
-                                    <button onclick="window.location.href='/detail/{{items.movies.slug}}'" class="more-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-                                    </svg>More info</button>
+                                    <button onclick="window.location.href='/detail/{{items.movies.slug}}'" class="more-info">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                        </svg>More info
+                                    </button>
                                 </div>
-
-
                             </div>
                             <div class="ratings">
                                 <button class="clip-audio mute-button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-mute" viewBox="0 0 16 16">
                                         <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM6 5.04 4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96V5.04zm7.854.606a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z"/>
-                                      </svg></button>
+                                      </svg>
+                                </button>
                                 <span class="maturity-rating">
-                                    <span class="maturity-number">{{items.movies.movie_grade}}</span></span>
+                                    <span class="maturity-number">{{items.movies.movie_grade}}</span>
+                                </span>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -91,6 +85,4 @@
       <span class="visually-hidden">Next</span>
     </button>
     </div>
-
-
 </section>

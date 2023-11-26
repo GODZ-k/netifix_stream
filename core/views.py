@@ -139,6 +139,7 @@ def Browse(request):  # sourcery skip: avoid-builtin-shadow
     category=Categories.objects.all()
     all_movies=movie.objects.all()  # this is for year filteration
     movie_tags=tags()
+    browse_slideshow=browse()
     _items=movie.objects.all()
     if request.method =='GET':
       category_name=request.GET.get('category','')
@@ -168,7 +169,7 @@ def Browse(request):  # sourcery skip: avoid-builtin-shadow
         "sort_by":sort_by,
         "category_name":category_name,
         "tag_name":tag_name,
-        # "items":search_pagination,
+        **browse_slideshow,
         **searching_pagination
     }
     return render(request,"Browse.html",data)

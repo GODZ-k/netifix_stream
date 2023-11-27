@@ -58,10 +58,10 @@
                   {% for items in update %}
                     <div class="carousel-item video-slider active" data-bs-interval="10000">
                         {% if not items.browse_url %}
-                        <video preload="auto" src="{{items.browse_clip}}" class="video next-video" autoplay loop muted poster="{{items.browse_image}}">
+                        <video preload="auto" src="/media/{{items.browse_clip}}" class="video next-video" autoplay loop muted poster="{{items.browse_image}}">
                         </video>
                         {% else %}
-                        <video preload="auto" src="{{items.browse_clip}}" class="video next-video" autoplay loop muted poster="{{items.browse_url}}">
+                        <video preload="auto" src="/media/{{items.browse_clip}}" class="video next-video" autoplay loop muted poster="{{items.browse_url}}">
                         </video>
                         {% endif %}
                         <div class="carousel-caption">
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                  {% endfor %}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev" fdprocessedid="lgpeob">
               <span class="visually-hidden">Previous</span>

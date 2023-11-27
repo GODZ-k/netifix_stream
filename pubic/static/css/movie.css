@@ -269,6 +269,7 @@ body {
 #movie-download .download>h1 {
     font-size: clamp(1.3125rem, 2vw, 1.875rem);
     color: #d6d6d6;
+    text-transform: uppercase;
 }
 
 #movie-download .download>span {

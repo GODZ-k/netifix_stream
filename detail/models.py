@@ -73,7 +73,6 @@ class trending(models.Model):
 
 class hot_thrills(models.Model):
     movies=models.ForeignKey(movie, related_name="hot_thrills_movies", on_delete=models.CASCADE)
-    label=models.CharField(max_length=200,null=True, blank=True)
     name_color=models.CharField(max_length=100 , default="grey")
     clip=models.FileField(upload_to="movie_media" ,help_text="If not clip url (Optional)",null=True,blank=True )
     clip_url=models.URLField(max_length=500 , null=True , blank=True, help_text="If not clip")

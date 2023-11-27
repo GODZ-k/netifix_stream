@@ -1,0 +1,91 @@
+<div id="movie-download" class="section-p2">
+    <h2>Download</h2>
+    <p>{{items.update}}</p>
+
+    {% for download in download  %}
+    <div class="pre-download">
+        {% if download.Quality1 %}
+        <div class="download">
+            <h1>{{download.Quality1}}</h1>
+            <span>{{download.size1}}</span>
+            <div class="download-links">
+                {% if download.server1_1 %}
+                <button class="download-btn">
+                    <a href="{{download.server1_1}}">Server 1</a>
+                </button>
+                {% endif %}
+
+                {% if download.server2_1 %}
+                <button class="download-btn">
+                    <a href="{{download.server2_1}}">Server 2</a>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if download.Quality2%}
+        <div class="download">
+            <h1>{{download.Quality2}}</h1>
+            <span>{{download.size2}}</span>
+            <div class="download-links">
+                {% if download.server1_2 %}
+                <button class="download-btn">
+                    <a href="{{download.server1_2}}">Server 1</a>
+                </button>
+                {% endif %}
+
+                {% if download.server2_2 %}
+                <button class="download-btn">
+                    <a href="{{download.server2_2}}">Server 2</a>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if download.Quality3 %}
+        <div class="download">
+            <h1>{{download.Quality3}}</h1>
+            <span>{{download.size3}}</span>
+            <div class="download-links">
+                {% if download.server1_3 %}
+                <button class="download-btn">
+                    <a href="{{download.server1_3}}">Server 1</a>
+                </button>
+                {% endif %}
+
+                {% if download.server2_3 %}
+                <button class="download-btn">
+                    <a href="{{download.server2_3}}">Server 2</a>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if download.Quality4 %}
+        <div class="download">
+            <h1>{{download.Quality4}}</h1>
+            <span>{{download.size4}}</span>
+            <div class="download-links">
+
+                {% if download.server1_4 %}
+                <button class="download-btn">
+                    <a href="{{download.server1_4}}">Server 1</a>
+                </button>
+                {% endif %}
+
+                {% if download.server2_4 %}
+                <button class="download-btn">
+                    <a href="{{download.server2_4}}">Server 2</a>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+
+</div>

@@ -42,28 +42,9 @@ def home(request):
     return render(request, "index.html",data)
 
 def category_data():
-    Scifi=movie.objects.filter(category__category="Scifi")
-    Action=movie.objects.filter(category__category="Action")
-    Advanture=movie.objects.filter(category__category="Advanture")
-    Comedy=movie.objects.filter(category__category="Comedy")
-    Fantasy=movie.objects.filter(category__category="Fantasy")
-    History=movie.objects.filter(category__category="History")
-    Horror=movie.objects.filter(category__category="Horror")
-    Thriller=movie.objects.filter(category__category="Thriller")
-    Mystery=movie.objects.filter(category__category="Mystery")
-    Romance=movie.objects.filter(category__category="Romance")
-
+    category=Categories.objects.all()
     return {
-        "Scifi": Scifi,
-        "Action": Action,
-        "Advanture": Advanture,
-        "Comedy": Comedy,
-        "Fantasy": Fantasy,
-        "History": History,
-        "Horror": Horror,
-        "Thriller": Thriller,
-        "Mystery": Mystery,
-        "Romance": Romance,
+        "category": category
     }
 
 def hot_thirill_data():
@@ -75,12 +56,10 @@ def hot_thirill_data():
 def poster():
     recomanded1=poster1.objects.all()
     recomanded2=poster2.objects.all()
-    recomanded3=poster3.objects.all()
 
     return {
         "recomanded1":recomanded1,
         "recomanded2":recomanded2,
-        "recomanded3":recomanded3,
     }
 
 def tags():

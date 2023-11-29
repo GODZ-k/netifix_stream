@@ -49,7 +49,7 @@ class movie(models.Model):
     slug=AutoSlugField(populate_from='movie_title',unique=True,null=True,default=None)
     movie_title=models.CharField(max_length=300, help_text="Ex: Loki full hd movie download")
     released_at=models.DateField(null=True , blank=True ,help_text=" Ex: 23/09/2021")
-    updated_at=models.DateTimeField(auto_now=True)
+    updated_at=models.DateField(auto_now=True)
     is_delete=models.BooleanField(default=False)
 
     objects=Moviemanager()
@@ -111,13 +111,3 @@ class poster2(models.Model):
         verbose_name_plural = 'Recommanded posters 2'
 
 
-class poster3(models.Model):
-    movie_wallpaper=models.ImageField(upload_to="movie_media")
-    movies=models.ForeignKey(movie, related_name="poster3_movies", on_delete=models.CASCADE)
-
-
-    def __str__(self) -> str:
-        return self.movies.name
-
-    class Meta:
-        verbose_name_plural = 'Recommanded posters 3'

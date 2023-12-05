@@ -80,12 +80,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Netifix.wsgi.application'
 
-# database
-
-PASSWORD=os.environ.get("PASSWORD")
-HOST=os.environ.get("HOST")
-USER=os.environ.get("USER")
-NAME=os.environ.get("NAME")
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -96,25 +90,15 @@ NAME=os.environ.get("NAME")
 #     }
 # }
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": NAME,
-#         "USER": USER,
-#         "PASSWORD": PASSWORD,
-#         "HOST": HOST,
-#         "PORT": "3306",
-#     }
-# }
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.mysql',
-       'NAME': config('DATABASE_NAME'),
-       'USER': config('DATABASE_USER'),
-       'PASSWORD': config('DATABASE_PASSWORD'),
-       'HOST': config('DATABASE_HOST'),
-       'PORT': config('DATABASE_PORT', cast=int),
-   }
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "netifix",
+        "USER": "admin",
+        "PASSWORD": "theinterstaller",
+        "HOST": "database-netifix.cvtc5o61wxos.ap-southeast-2.rds.amazonaws.com",
+        "PORT": "3306",
+    }
 }
 
 # Password validation

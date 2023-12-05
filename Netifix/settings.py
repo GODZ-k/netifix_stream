@@ -34,7 +34,10 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'jet',
+     'material',
+     'material.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -98,6 +101,9 @@ DATABASES = {
         "PASSWORD": "theinterstaller",
         "HOST": "database-netifix.cvtc5o61wxos.ap-southeast-2.rds.amazonaws.com",
         "PORT": "3306",
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 

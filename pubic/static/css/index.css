@@ -982,7 +982,7 @@ align-items: flex-end; */
 }
 
 .movie-poster {
-    height: clamp(100px, 55vw, 60vh);
+    height: clamp(100px, 65vw, 60vh);
     background-color: #161616;
     display: flex;
     justify-content: center;

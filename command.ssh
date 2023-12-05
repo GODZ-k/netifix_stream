@@ -1,0 +1,22 @@
+ssh -i "tanmay_netifix_deploy.pem" ubuntu@3.106.114.211
+
+sudo systemctl status gunicorn
+sudo service nginx status
+
+pull changes ---------------------- method 1
+
+git pull    or   git pull origin branch_name
+pip install -r requirements.txt
+python manage.py collectstatic
+sudo systemctl daemon-reload
+sudo systemctl restart gunicorn
+sudo systemctl restart nginx
+
+pull changes ------------------------ method 2
+
+
+  kill -HUP `ps -C gunicorn fch -o pid | head -n 1`
+
+method 2 ---
+
+ ps aux |grep gunicorn |grep django | awk '{ print $2 }' |xargs kill -HUP

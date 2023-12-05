@@ -13,9 +13,8 @@ sudo systemctl restart gunicorn
 sudo systemctl restart nginx
 pull changes ------------------------ method 2
 
-
-  kill -HUP `ps -C gunicorn fch -o pid | head -n 1`
+kill -HUP `ps -C gunicorn fch -o pid | head -n 1`
 
 method 2 ---
 
- ps aux |grep gunicorn |grep django | awk '{ print $2 }' |xargs kill -HUP
+ps aux |grep gunicorn |grep django | awk '{ print $2 }' |xargs kill -HUP

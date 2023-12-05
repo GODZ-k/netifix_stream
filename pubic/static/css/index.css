@@ -800,7 +800,7 @@ width: clamp(57px, 30vw, 165px); */
     color: white !important;
     position: absolute;
     /* height: clamp(300px, 26vw, 325px); */
-    height: clamp(320px, 26vw, 350px);
+    min-height: clamp(320px, 26vw, 350px);
     /* width: clamp(270px, 23vw, 275px); */
     min-width: clamp(300px, 27vw, 290px);
     /* min-width: clamp(300px, 27vw, 320px); */

@@ -1,18 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/media/css/index.css">
-    <link rel="stylesheet" href="/media/css/movie.css">
-    <link rel="stylesheet" href="/media/css/amazonprime.css">
-    <link rel="stylesheet" href="/media/css/about.css">
-    <link rel="stylesheet" href="/media/css/HBO.css">
-    <link rel="stylesheet" href="/media/css/browse.css">
-    <link rel="stylesheet" href="/media/css/dmca.css">
-    <link rel="stylesheet" href="/media/css/desneyplus.css">
-    <link rel="stylesheet" href="/media/css/netflix.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/amazonprime.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/HBO.css' %}">
+    <link rel="stylesheet" href="{% static 'css/browse.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dmca.css' %}">
+    <link rel="stylesheet" href="{% static 'css/desneyplus.css' %}">
+    <link rel="stylesheet" href="{% static 'css/netflix.css' %}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +43,7 @@
     {% include 'footer.html' %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/media/js/script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             addBackToTopButton("back-to-top", 1000); // Example usage

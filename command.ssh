@@ -18,3 +18,22 @@ kill -HUP `ps -C gunicorn fch -o pid | head -n 1`
 method 2 ---
 
 ps aux |grep gunicorn |grep django | awk '{ print $2 }' |xargs kill -HUP
+
+
+
+server {
+    listen 80;
+    server_name 3.106.114.211;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+
+    location /media/ {
+        root /home/ubuntu/django/netifix_stream/public/static/;
+    }
+
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
+}

@@ -1,0 +1,89 @@
+:root {
+    --font-color: #ff3f3f;
+    --background-color: #161616;
+    --para-bg-color: #252525;
+    --marker: #b91c1c;
+    --gradiant: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+}
+
+#dmca {
+    padding: 80px 20px;
+    background-color: var(--background-color);
+    min-height: 100vh;
+}
+
+#dmca>h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(20px, 4vw, 30px);
+    color: var(--font-color);
+    margin: 0 20px 10px 20px;
+    text-align: center;
+    /* display: inline; */
+    /* -webkit-text-fill-color: transparent; */
+    /* background-clip: text; */
+    /* color: transparent !important; */
+    font-weight: 600;
+    /* -webkit-background-clip: text !important; */
+    /* background: linear-gradient(90deg, #d53369 0%, #daae51 100%); */
+}
+
+#dmca #dmca-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dmca .dmca-para {
+    min-height: 10vh;
+    /* background-color: var(--para-bg-color); */
+    /* max-width: 60rem; */
+    color: #d1d1d1;
+    width: clamp(150px, 95vw, 1000px);
+    /* box-shadow: 0 0 10px var(--para-bg-color); */
+    /* margin: 20px 0; */
+    /* font-size: 15px; */
+    padding: 10px 20px;
+    border-radius: 1vw;
+}
+
+#dmca .dmca-para>h2 {
+    display: inline;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background: var(--gradiant);
+    -webkit-background-clip: text;
+}
+
+#dmca .dmca-para p {
+    padding: 15px 0 0 0;
+    line-height: 25px;
+    font-size: 15px;
+}
+
+#dmca .dmca-para ul {
+    margin: 10px 0 0 0;
+    list-style-type: disclosure-closed;
+}
+
+#dmca .dmca-para ul ul {
+    list-style-type: disclosure-closed;
+}
+
+#dmca .dmca-para ul li::marker {
+    color: var(--marker);
+}
+
+#dmca .dmca-para ul li ul li::marker {
+    color: #ae2a00;
+}
+
+#dmca strong {
+    color: var(--marker);
+}
+
+@media (max-width: 550px) {
+    #dmca {
+        padding: 10px;
+    }
+}

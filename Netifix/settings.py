@@ -1,3 +1,4 @@
+# sourcery skip: replace-interpolation-with-fstring
 """
 Django settings for Netifix project.
 
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'storages',  # amazon s3 storage
+    'whitenoise'
 
 ]
 EXTERNAL_APPS = [
@@ -55,6 +58,7 @@ INSTALLED_APPS += EXTERNAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -63,8 +67,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 ROOT_URLCONF = 'Netifix.urls'
 
@@ -141,6 +146,32 @@ USE_I18N = True
 USE_TZ = False
 
 
+# AWS configration
+
+# AWS_ACCESS_KEY_ID = 'AKIASGIQNGMSP42B67H4'
+# AWS_SECRET_ACCESS_KEY = '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'
+
+
+# # Basic Storage Configration
+
+# AWS_STORAGE_BUCKET_NAME = 'mynetifixbucket'
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_FILE_OVERWRITE = False
+
+
+# STORAGES = {
+
+#     # Media file (image) management
+#     "default": {
+#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#     },
+
+#     # CSS and JS file management
+#     "staticfiles": {
+#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#     },
+# }
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -153,10 +184,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATIC_URL='/static/'
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT=os.path.join(BASE_DIR / 'staticfiles')
 
-STATICFILES_DIR={
-    os.path.join(BASE_DIR,'public/static')
-}
-MEDIA_ROOT=os.path.join(BASE_DIR,'pubic/static')
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static')
+]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 MEDIA_URL='/media/'

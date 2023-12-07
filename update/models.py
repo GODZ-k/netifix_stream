@@ -13,7 +13,7 @@ class Latestupdate(models.Model):
 
 class Browse_update(models.Model):
     browse_name=models.CharField(max_length=50,help_text="Enter the movie name")
-    browse_url=models.URLField( max_length=200,null=True,blank=True,help_text="If not poster image ")
+    browse_url=models.URLField( max_length=200,null=True,blank=True,help_text="If not poster image")
     browse_image=models.ImageField(upload_to="movie_media",help_text="If not image url", null=True, blank=True)
     browse_clip=models.FileField(upload_to="movie_media",help_text="If have clip",null=True,blank=True)
     browse_trailler=models.CharField(max_length=900,help_text="Enter the trailler id")

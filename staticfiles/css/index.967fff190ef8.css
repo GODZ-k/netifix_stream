@@ -209,7 +209,7 @@ z-index: 5;
     justify-content: space-between;
     /* padding: 20px 80px; */
     padding: 0.25rem 3rem 0.25rem 2rem;
-    background: url("/static/media/header_gradient.dd945393c434.png") repeat-x !important;
+    background: url(/media/header_gradient.png) repeat-x !important;
     /* background-color: #07161b; */
     /* background-color: #07161b; */
     z-index: 999;

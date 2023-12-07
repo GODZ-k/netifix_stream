@@ -5,7 +5,7 @@
 
 #amazonprime-content {
     min-height: 100vh;
-    background: url(/media/media/amazonprime.jpg) rgba(0, 0, 0, 0.65) no-repeat center;
+    background: url(/media/amazonprime.jpg) rgba(0, 0, 0, 0.65) no-repeat center;
     background-size: cover;
     background-blend-mode: darken;
     padding: 80px 20px;

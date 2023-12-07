@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-@cjb4207&p=^sm97dd8+2rm!dmsu_j@h_c!^1+-94a16r1e)bi"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1']
 
@@ -172,6 +172,19 @@ USE_TZ = False
 #     },
 # }
 
+# AWS_ACCESS_KEY_ID = 'AKIASGIQNGMSP42B67H4 '
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'mynetifixbucket'
+# AWS_S3_SIGNATURE_NAME = 's3v4',
+# AWS_S3_REGION_NAME = 'ap-south-1'
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL =  None
+# AWS_S3_VERITY = True
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+# MEDIA_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -182,15 +195,17 @@ USE_TZ = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# static files
 
 STATIC_URL='/static/'
 STATIC_ROOT=os.path.join(BASE_DIR / 'staticfiles')
 
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
+    os.path.join(BASE_DIR,'static'),
+
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'static')
+MEDIA_ROOT=os.path.join(BASE_DIR / 'media')
 MEDIA_URL='/media/'

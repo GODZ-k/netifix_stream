@@ -36,6 +36,5 @@ urlpatterns+=staticfiles_urlpatterns()
 #     # Configure a different storage backend for production (e.g., Amazon S3)
 #     # DEFAULT_FILE_STOR
 
-
 # url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
 # url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT})

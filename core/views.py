@@ -7,7 +7,7 @@ from update.views import *
 # Create your views here.
 def home(request):
     # pagination and search
-    _items=movie.objects.all().order_by('-updated_at')
+    _items=movie.objects.all().order_by('updated_at')
     searching_pagination=search_pagination(request,_items)
     # hot thrills
     hot_thrill_data_dict=hot_thirill_data()

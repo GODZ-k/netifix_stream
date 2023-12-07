@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            background-color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #e74c3c;
+            margin: 0;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <p>Page Not Found</p>
+        <p>The requested page could not be found on the server. Please check the URL or navigate back to the <a href="{% url 'home' %}">home page</a>.</p>
+    </div>
+</body>
+
+</html>

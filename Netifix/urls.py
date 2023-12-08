@@ -19,9 +19,10 @@ from django.urls import path,include
 from Netifix import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.urls import re_path
 from django.conf import settings
+# debug = false
 from django.views.static import serve
+from django.urls import re_path
 
 urlpatterns = [
     path('admin/clearcache/', include('clearcache.urls')),

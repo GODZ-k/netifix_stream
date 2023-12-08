@@ -25,8 +25,8 @@ from django.views.static import serve
 
 urlpatterns = [
     path('admin/clearcache/', include('clearcache.urls')),
-    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
-    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),  # whitenoise if debug = False
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), # whitenoise if debug = False
     path('admin/', admin.site.urls),
     path("",include("core.urls")),
     path("detail/", include("detail.urls")),
@@ -40,10 +40,3 @@ if settings.DEBUG:  # Dev only
 # if settings.DEBUG:
 #     urlpatterns +=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 # urlpatterns+=staticfiles_urlpatterns()
-
-# if settings.DEBUG:
-#     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-# else:
-#     # Configure a different storage backend for production (e.g., Amazon S3)
-#     # DEFAULT_FILE_STOR
-

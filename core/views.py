@@ -84,7 +84,7 @@ def About(request):
     return render(request,"About.html")
 
 def Netflix(request):
-    _items=movie.objects.filter(tags__name="Netflix").distinct()
+    _items=movie.objects.filter(tags__name="Netflix").distinct().order_by('-released_at')
     searching_pagination=search_pagination(request,_items)
 
     data={
@@ -94,7 +94,7 @@ def Netflix(request):
     return render(request,"Netflix.html",data)
 
 def disneyplus(request):
-    _items=movie.objects.filter(tags__name="Disney+").distinct()
+    _items=movie.objects.filter(tags__name="Disney+").distinct().order_by('-released_at')
     searching_pagination=search_pagination(request,_items)
 
     data={
@@ -105,7 +105,7 @@ def disneyplus(request):
 
 
 def Amazonprime(request):
-    _items = movie.objects.filter(tags__name="Prime").distinct()
+    _items = movie.objects.filter(tags__name="Prime").distinct().order_by('-released_at')
     searching_pagination=search_pagination(request,_items)
 
     data={

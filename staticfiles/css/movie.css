@@ -332,7 +332,8 @@ body {
     border-radius: 8%;
 }
 
-.related-holder:nth-child(1) .related-animation {
+
+/* .related-holder:nth-child(1) .related-animation {
     -webkit-animation: related 50s linear infinite;
     animation: related 50s linear infinite;
 }
@@ -345,7 +346,7 @@ body {
 .related-holder:nth-child(even) .related-animation {
     -webkit-animation: related 100s linear infinite;
     animation: related 100s linear infinite;
-}
+} */
 
 .related-tray .related-tray-items .related-tray-items-image img {
     height: 100%;

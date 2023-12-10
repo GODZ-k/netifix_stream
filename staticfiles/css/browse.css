@@ -238,8 +238,7 @@ top: -15%;
         overflow: hidden;
         border-radius: 8%;
     }
-
-    .scroll-holder:nth-child(1) .scroll-animation {
+    /* .scroll-holder:nth-child(1) .scroll-animation {
         -webkit-animation: scroll 50s linear infinite;
         animation: scroll 50s linear infinite;
     }
@@ -252,7 +251,7 @@ top: -15%;
     .scroll-holder:nth-child(even) .scroll-animation {
         -webkit-animation: scroll 100s linear infinite;
         animation: scroll 100s linear infinite;
-    }
+    } */
 
     .scroll-tray .scroll-tray-items .scroll-tray-items-image img {
         height: 100%;

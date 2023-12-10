@@ -821,7 +821,7 @@ width: clamp(57px, 30vw, 165px); */
 
 .movie-container .overlay-trailler {
     /* height: clamp(115px, 57vw, 180px); */
-    min-height: clamp(115px, 57vw, 180px);
+    height: clamp(115px, 57vw, 180px);
     width: 100%;
 }
 

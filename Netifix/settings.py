@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-@cjb4207&p=^sm97dd8+2rm!dmsu_j@h_c!^1+-94a16r1e)bi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1']
+ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1','netifix.info','Netifix.info','www.Netifix.info','www.netifix.info','WWW.Netifix.info','WWW.netifix.info','nefifix.in','www.netifix.in']
 
 
 # Application definition

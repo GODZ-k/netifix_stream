@@ -23,14 +23,17 @@ ps aux |grep gunicorn |grep django | awk '{ print $2 }' |xargs kill -HUP
 
 server {
     listen 80;
-    server_name 3.106.114.211;
+    server_name www.netifx.info netifix.info 3.106.114.211;
 
     location = /favicon.ico { access_log off; log_not_found off; }
 
-    location /media/ {
-        root /home/ubuntu/django/netifix_stream/public/static/;
+    location /staticfiles/ {
+        root /home/ubuntu/django/netifix_stream/;
     }
 
+    location /media/{
+        root /home/ubuntu/django/netifix_stream/static/;
+    }
 
     location / {
         include proxy_params;

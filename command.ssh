@@ -27,13 +27,6 @@ server {
 
     location = /favicon.ico { access_log off; log_not_found off; }
 
-    location /staticfiles/ {
-        root /home/ubuntu/django/netifix_stream/;
-    }
-
-    location /media/{
-        root /home/ubuntu/django/netifix_stream/static/;
-    }
 
     location / {
         include proxy_params;

@@ -28,7 +28,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1','netifix.info','www.netifix.info']
@@ -103,20 +102,6 @@ WSGI_APPLICATION = 'Netifix.wsgi.application'
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "netifix",
-#         "USER": "admin",
-#         "PASSWORD": "theinterstaller",
-#         "HOST": "database-netifix.cvtc5o61wxos.ap-southeast-2.rds.amazonaws.com",
-#         "PORT": "3306",
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         },
 #     }
 # }
 

@@ -40,9 +40,11 @@ width: clamp(1111px, 7vw, 131px);
 /*  preloader  */
 
 #preloader {
-    background-color: black;
+    /* background-color: black; */
+    background: rgba(0, 0, 0, 0.9);
     height: 100vh;
     width: 100%;
+    top: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,7 +69,7 @@ width: clamp(1111px, 7vw, 131px);
 
 #preloader .nfLoader {
     position: absolute;
-    bottom: 25%;
+    bottom: 50% !important;
     left: 50%;
     margin: 37px 0 0 -15px;
     width: 45px;
@@ -1487,7 +1489,6 @@ align-items: flex-end; */
 } */
     .nfLoader {
         width: 35px;
-        bottom: 30% !important;
         height: 35px;
     }
     .carousel-caption .procont .movie-head .ratings button svg {

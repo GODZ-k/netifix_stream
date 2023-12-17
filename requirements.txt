@@ -25,6 +25,7 @@ django-jet==1.0.8
 django-material-admin==1.8.6
 django-quill==0.1.0
 django-quill-editor==0.1.40
+django-request==1.6.3
 django-sslserver==0.22
 django-storages==1.14.2
 django-tailwind==3.6.0

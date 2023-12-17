@@ -37,7 +37,6 @@ ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1','netifix.info','www.netifix.info']
 # Application definition
 
 INSTALLED_APPS = [
-    # 'jet',
     'clearcache',
     #  'material',
     #  'material.admin',
@@ -47,11 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages',  # amazon s3 storage
-    'whitenoise',
-
 ]
 EXTERNAL_APPS = [
+    'storages',  # amazon s3 storage
+    'whitenoise',   # serve static and media file when debug false
+    'request',    # django website activity
     'core',
     'detail',
     'update',
@@ -68,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'request.middleware.RequestMiddleware',
 ]
 
 SECURE_SSL_REDIRECT = False

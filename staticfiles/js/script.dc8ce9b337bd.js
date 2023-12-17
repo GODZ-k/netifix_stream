@@ -72,24 +72,24 @@ function addAnimation() {
 
 let loader = document.getElementById("preloader");
 
+function hidePreloader() {
+    loader.style.display = "none";
+    // Set a flag in localStorage to indicate that the preloader has been shown
+    localStorage.setItem("preloaderShown", "true");
+    // Set a cookie to track the preloader shown state (valid for 365 days)
+    setCookie("preloaderShown", "true", 365);
+}
+
 // Check if the preloader has already been shown
 if (!localStorage.getItem("preloaderShown") && !getCookie("preloaderShown")) {
     // Display the preloader initially
     loader.style.display = "block";
 
     // Set a timer to hide the preloader after 2 seconds (adjust as needed)
-    setTimeout(function() {
-        loader.style.display = "none";
-
-        // Set a flag in localStorage to indicate that the preloader has been shown
-        localStorage.setItem("preloaderShown", "true");
-
-        // Set a cookie to track the preloader shown state (valid for 365 days)
-        setCookie("preloaderShown", "true", 365);
-    }, 3000); // Adjust the time in milliseconds (2 seconds in this example)
+    setTimeout(hidePreloader, 2000); // Adjust the time in milliseconds (2 seconds in this example)
 } else {
     // If the preloader has already been shown, hide it immediately
-    loader.style.display = "none";
+    hidePreloader();
 }
 
 // Function to set a cookie
@@ -97,7 +97,7 @@ function setCookie(name, value, days) {
     var expires = "";
     if (days) {
         var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
         expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + value + expires + "; path=/";
@@ -106,10 +106,10 @@ function setCookie(name, value, days) {
 // Function to get a cookie value by name
 function getCookie(name) {
     var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
+    var ca = document.cookie.split(";");
     for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        while (c.charAt(0) === " ") c = c.substring(1, c.length);
         if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
     }
     return null;

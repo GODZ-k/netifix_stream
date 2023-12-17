@@ -28,11 +28,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1','netifix.info','www.netifix.info']
 
 # ALLOWED_HOSTS = ['*']
+
+# admin restriction
+
+# ADMIN_ENABLED = False
 
 # Application definition
 

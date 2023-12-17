@@ -86,7 +86,7 @@ if (!localStorage.getItem("preloaderShown") && !getCookie("preloaderShown")) {
 
         // Set a cookie to track the preloader shown state (valid for 365 days)
         setCookie("preloaderShown", "true", 365);
-    }, 3000); // Adjust the time in milliseconds (2 seconds in this example)
+    }, 5000); // Adjust the time in milliseconds (2 seconds in this example)
 } else {
     // If the preloader has already been shown, hide it immediately
     loader.style.display = "none";

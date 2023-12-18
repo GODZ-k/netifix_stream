@@ -25,10 +25,14 @@ from django.views.static import serve
 from django.urls import re_path
 
 urlpatterns = [
-    path('admin/clearcache/', include('clearcache.urls')),
+    # fake admin pannel
+    path('admin/', include('admin_honeypot.urls')),
+
+    # actual admin pannel
+    path('django_admin/clearcache/', include('clearcache.urls')),
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),  # whitenoise if debug = False
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), # whitenoise if debug = False
-    path('admin/', admin.site.urls),
+    path('django_admin/', admin.site.urls),
     path("",include("core.urls")),
     path("detail/", include("detail.urls")),
 ]

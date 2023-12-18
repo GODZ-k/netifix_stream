@@ -27,9 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in pro duction!
 DEBUG = False
 # DEBUG = True
+
+REQUEST_BASE_URL = 'https://netifix.info/'
 
 ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1','netifix.info','www.netifix.info']
 
@@ -51,16 +53,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
+
 EXTERNAL_APPS = [
     'storages',  # amazon s3 storage
     'whitenoise',   # serve static and media file when debug false
     'request',    # django website activity
+    'admin_honeypot',   # django honeypot
     'core',
     'detail',
     'update',
     'downloads',
 ]
+
 INSTALLED_APPS += EXTERNAL_APPS
 
 MIDDLEWARE = [

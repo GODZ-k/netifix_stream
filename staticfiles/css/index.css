@@ -446,7 +446,7 @@ font-size: 14px !important;
 .carousel-control-next,
 .carousel-control-prev {
     /* z-index: 1 !important; */
-    width: 5% !important;
+    width: 10% !important;
 }
 
 .carousel-caption .procont .movie-head {

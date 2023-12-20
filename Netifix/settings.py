@@ -33,7 +33,7 @@ DEBUG = False
 
 REQUEST_BASE_URL = 'https://netifix.info/'
 
-ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1','netifix.info','www.netifix.info']
+ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1','netifix.info','www.netifix.info','testserver']
 
 # ALLOWED_HOSTS = ['*']
 
@@ -42,6 +42,8 @@ ALLOWED_HOSTS = ['3.106.114.211','127.0.0.1','netifix.info','www.netifix.info']
 # ADMIN_ENABLED = False
 
 # Application definition
+
+SITE_ID = 1
 
 INSTALLED_APPS = [
     'clearcache',
@@ -54,6 +56,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.sites',
+
+
+
 ]
 
 EXTERNAL_APPS = [
@@ -61,6 +67,15 @@ EXTERNAL_APPS = [
     'whitenoise',   # serve static and media file when debug false
     'request',    # django website activity
     'admin_honeypot',   # django honeypot
+
+    "django_check_seo",   # django seo
+
+     # django cms for seo
+    'cms',
+    'menus',
+   'treebeard',
+
+   # django application
     'core',
     'detail',
     'update',
@@ -154,6 +169,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = [
+    ('en-us', 'English (United States)'),
+    # Add other languages if necessary
+]
 
 TIME_ZONE =  'Asia/Kolkata'
 

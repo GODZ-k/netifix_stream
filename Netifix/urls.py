@@ -33,8 +33,13 @@ urlpatterns = [
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),  # whitenoise if debug = False
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), # whitenoise if debug = False
     path('django_admin/', admin.site.urls),
+
+    path("django-check-seo/", include("django_check_seo.urls")),    # django-check-seo
+
     path("",include("core.urls")),
     path("detail/", include("detail.urls")),
+
+
 ]
 
 if settings.DEBUG:  # Dev only

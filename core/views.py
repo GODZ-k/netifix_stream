@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from detail.models import *
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -6,6 +6,7 @@ from update.views import *
 
 # Create your views here.
 def home(request):
+   try:
     # pagination and search
     _items=movie.objects.all().order_by('-released_at')
     searching_pagination=search_pagination(request,_items)
@@ -39,7 +40,11 @@ def home(request):
         **latest_update_data,
 
     }
-    return render(request, "index.html",data)
+
+   except:
+       return redirect('/')
+
+   return render(request, "index.html",data)
 
 def category_data():
     category=Categories.objects.all()
@@ -84,37 +89,54 @@ def About(request):
     return render(request,"About.html")
 
 def Netflix(request):
-    _items=movie.objects.filter(tags__name="Netflix").distinct().order_by('-released_at')
-    searching_pagination=search_pagination(request,_items)
 
-    data={
+    try:
+      _items=movie.objects.filter(tags__name="Netflix").distinct().order_by('-released_at')
+      searching_pagination=search_pagination(request,_items)
+
+      data={
         **searching_pagination
-    }
+      }
+
+    except:
+        return redirect('/')
 
     return render(request,"Netflix.html",data)
 
 def disneyplus(request):
-    _items=movie.objects.filter(tags__name="Disney+").distinct().order_by('-released_at')
-    searching_pagination=search_pagination(request,_items)
 
-    data={
+    try:
+      _items=movie.objects.filter(tags__name="Disney+").distinct().order_by('-released_at')
+      searching_pagination=search_pagination(request,_items)
+
+      data={
         **searching_pagination
-    }
+      }
+
+    except:
+        return redirect('/')
 
     return render(request,"disney+.html",data)
 
 
 def Amazonprime(request):
-    _items = movie.objects.filter(tags__name="Prime").distinct().order_by('-released_at')
-    searching_pagination=search_pagination(request,_items)
 
-    data={
+    try:
+      _items = movie.objects.filter(tags__name="Prime").distinct().order_by('-released_at')
+      searching_pagination=search_pagination(request,_items)
+
+      data={
         **searching_pagination
-    }
+      }
+
+    except:
+        return redirect('/')
 
     return render(request,"Amazonprime.html",data)
 
 def Browse(request):  # sourcery skip: avoid-builtin-shadow
+
+  try:
     category=Categories.objects.all()
     all_movies=movie.objects.all()  # this is for year filteration
     movie_tags=tags()
@@ -151,15 +173,24 @@ def Browse(request):  # sourcery skip: avoid-builtin-shadow
         **browse_slideshow,
         **searching_pagination
     }
-    return render(request,"Browse.html",data)
+  except:
+      return redirect('/')
+
+  return render(request,"Browse.html",data)
 
 def HBO(request):
-    _items=movie.objects.filter(tags__name="HBO").distinct()
-    searching_pagination=search_pagination(request,_items)
 
-    data={
+    try:
+      _items=movie.objects.filter(tags__name="HBO").distinct()
+      searching_pagination=search_pagination(request,_items)
+
+      data={
         **searching_pagination
-    }
+
+      }
+
+    except:
+        return redirect('/')
 
     return render(request,"HBO.html",data)
 

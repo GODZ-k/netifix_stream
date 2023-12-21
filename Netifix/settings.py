@@ -182,31 +182,6 @@ USE_I18N = True
 USE_TZ = False
 
 
-# Basic Storage configuration for Amazon S3 (Irrespective of Django versions)
-
-# AWS_ACCESS_KEY_ID = 'AKIASGIQNGMSP42B67H4'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'mynetifixbucket'
-# AWS_S3_FILE_OVERWRITE = False
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-# # AWS_S3_SIGNATURE_VERSION = 's3v4'
-# AWS_S3_REGION_NAME = 'ap-south-1'
-
-# # Django 4.2 >
-
-# STORAGES = {
-
-#     # Media file (image) management
-#     "default": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-#     },
-
-#     # CSS and JS file management
-#     "staticfiles": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-#     },
-# }
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -231,27 +206,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT=os.path.join(BASE_DIR / 'staticfiles/media')
 MEDIA_URL='/media/'
-
-
-# AWS_ACCESS_KEY_ID = 'AKIASGIQNGMSP42B67H4'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'mynetifixbucket'
-# # AWS_S3_FILE_OVERWRITE = False
-# AWS_S3_REGION_NAME = 'ap-south-1'
-# AWS_DEFAULT_ACL = 'public-read'
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-# AWS_LOCATION = 'static'
-# STATICFILES_DIRS = [
-#        os.path.join(BASE_DIR, 'static'),
-#      ]
-
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# DEFAULT_FILE_STORAGE = 'core.storages.MediaStore'
-# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-# # MEDIA_URL = '/media/'
-# # MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
-
 
 
 

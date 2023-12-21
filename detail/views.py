@@ -4,6 +4,8 @@ from detail.models import *
 from downloads.models import *
 # Create your views here.
 def detail(request,slug):
+
+  try:
     items = get_object_or_404(movie, slug=slug)
     related_categories=items.category.all().distinct()
     related_tags=movie.objects.filter(tags=items.tags).exclude(slug=slug).distinct()[:20]
@@ -15,7 +17,11 @@ def detail(request,slug):
         "related_tags":related_tags,
         **download_detail,
         }
-    return render(request,"detail.html",data)
+    
+  except:
+      return render('404.html')
+
+  return render(request,"detail.html",data)
 
 
 def download(items):

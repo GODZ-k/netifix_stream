@@ -9,7 +9,7 @@ git pull    or   git pull origin branch_name
 pip install -r requirements.txt
 python manage.py collectstatic
 sudo systemctl daemon-reload
-sudo systemctl restart gunicorn
+
 sudo systemctl restart nginx
 pull changes ------------------------ method 2
 

@@ -128,3 +128,16 @@
     padding: 8px;
     border-radius: 3px;
 }
+
+
+/* popup design */
+
+.modal-content {
+    color: #dadada !important;
+    background-color: #1a1a1a !important;
+}
+
+.btn-secondary {
+    --bs-btn-color: #000 !important;
+    --bs-btn-bg: #ffffff !important;
+}

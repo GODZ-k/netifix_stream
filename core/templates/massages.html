@@ -8,11 +8,11 @@
         </div>
         <div class="modal-body">
             {% if messages %}
-            <ul class="messages">
+            <div class="messages">
             {% for message in messages %}
             <h1 class="modal-title fs-5" id="exampleModalLabel">{{ message }}</h1>
             {% endfor %}
-            </ul>
+            </div>
             {% endif %}
         </div>
         <div class="modal-footer">

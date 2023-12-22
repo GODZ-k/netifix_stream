@@ -7,7 +7,6 @@ from core.models import *
 from django.core.mail import send_mail,EmailMessage
 from django.contrib import messages
 from Netifix import settings
-from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 
 
@@ -246,18 +245,16 @@ def subscribe_mail(request):
     email=request.GET.get('subscribe')
     savedata=Subscribers(Email=email)
     savedata.save()
-    sendmail(email,request)
+    sendmail(email)
     messages.success(request,"Thanks for connecting us.")
     return redirect("/")
 
 
-def sendmail(email,request):
-    currentsite=get_current_site(request)
-    subject=f' Welcome to {currentsite} '
+def sendmail(email):
+    subject=' Welcome to Netifix.info '
     message=render_to_string('welcome.html',
                              {
                                  'user':email,
-                                 'domain':currentsite.domain,
                              })
     email_from=settings.EMAIL_HOST_USER
     recipient_list=[email]

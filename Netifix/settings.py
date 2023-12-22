@@ -94,6 +94,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'request.middleware.RequestMiddleware',
+
+
 ]
 
 SECURE_SSL_REDIRECT = True  # it must be true in production

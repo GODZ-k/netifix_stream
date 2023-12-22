@@ -3,6 +3,13 @@ from detail.models import *
 from django.core.paginator import Paginator
 from django.db.models import Q
 from update.views import *
+from core.models import *
+from django.core.mail import send_mail,EmailMessage
+from django.contrib import messages
+from Netifix import settings
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+
 
 # Create your views here.
 def home(request):
@@ -22,6 +29,8 @@ def home(request):
     movie_trend=trend()
     # latest update
     latest_update_data=latestupdate()
+    # subscribe form and send email
+    subscribe_mail(request)
 
     data={
         # pagination and search
@@ -228,3 +237,30 @@ def search_pagination(request,_items):
         "search":search,
     }
 
+
+
+# send email to subscribers
+
+
+def subscribe_mail(request):
+    email=request.GET.get('subscribe')
+    savedata=Subscribers(Email=email)
+    savedata.save()
+    sendmail(email,request)
+    messages.success(request,"Thanks for connecting us.")
+    return redirect("/")
+
+
+def sendmail(email,request):
+    currentsite=get_current_site(request)
+    subject=f' Welcome to {currentsite} '
+    message=render_to_string('welcome.html',
+                             {
+                                 'user':email,
+                                 'domain':currentsite.domain,
+                             })
+    email_from=settings.EMAIL_HOST_USER
+    recipient_list=[email]
+    mail=EmailMessage(subject,message,email_from,recipient_list)
+    mail.fail_silently = True
+    mail.send()

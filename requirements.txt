@@ -24,6 +24,7 @@ django-3-jet==1.0.8
 django-admin-honeypot==1.1.0
 django-admin-honeypot-updated-2021==1.2.0
 django-allauth==0.59.0
+django-auto-logout==0.5.1
 django-autoslug==1.9.9
 django-browser-reload==1.12.0
 django-check-seo==0.6.5

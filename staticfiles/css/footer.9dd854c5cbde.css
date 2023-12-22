@@ -1,0 +1,104 @@
+/* start footer */
+
+#footer {
+    min-height: 30vh;
+    padding: 20px 20px 2px 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #161616;
+}
+
+#footer #footercontent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35vh;
+}
+
+#footer #footercontent ul li {
+    list-style-type: none;
+}
+
+#footer #footercontent ul li a {
+    color: #6f6f6f;
+    font-size: clamp(15px, 3vw, 15px);
+    text-decoration: none;
+}
+
+#footer #footercontent #socialicons {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#footer #footercontent #socialicons ul li a {
+    font-size: clamp(17px, 3vw, 25px);
+    color: #eeeeee;
+    margin-right: 10px;
+}
+
+#footer #footercontent #socialicons ul li a:hover {
+    color: #6f6f6f;
+}
+
+#footer #footercontent #footer-content-urls {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer #footercontent #footer-content-urls ul li {
+    line-height: 1.7rem;
+}
+
+#footer #footercontent #footer-content-urls ul li a:hover {
+    text-decoration: underline;
+}
+
+#footer #footercontent #backtotop {
+    /* display: flex;
+    justify-content: end;
+    width: 20%;
+    height: 100%;
+    align-items: flex-end; */
+    position: absolute;
+}
+
+#footer #footercontent #backtotop ul li button {
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 10px 17px;
+    display: none;
+    position: fixed;
+    z-index: 10;
+    color: #6f6f6f;
+    bottom: 5%;
+    right: 3%;
+    font-size: 17px;
+    border: 1px solid #6f6f6f;
+}
+
+#footer #footercontent #backtotop ul li button:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(104, 104, 104);
+    border: none;
+    transform: all 0.5s;
+    box-shadow: 0 0 10px black;
+}
+
+#footer #copyright {
+    height: 5vh;
+}
+
+#footer #copyright p {
+    text-align: center;
+    font-size: clamp(12px, 3vw, 15px);
+    color: #6f6f6f;
+}
+
+#footer #copyright p i {
+    margin: 0 10px;
+}

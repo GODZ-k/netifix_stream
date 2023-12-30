@@ -20,11 +20,15 @@ from Netifix import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
+from django.views.generic.base import TemplateView
+
 # debug = false
 from django.views.static import serve
 from django.urls import re_path
 
 urlpatterns = [
+    path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),),
+
     # fake admin pannel
     path('admin/', include('admin_honeypot.urls')),
 

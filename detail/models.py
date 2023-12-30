@@ -13,6 +13,10 @@ class Tags(models.Model):
 
     class Meta:
         verbose_name_plural = 'Tags'
+
+    def get_absolute_url(self):
+        return f'/Browse/?tags={self}'
+
 class Categories(models.Model):
     category=models.CharField(max_length=100)
 
@@ -21,6 +25,10 @@ class Categories(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
+
+    def get_absolute_url(self):
+        return f'/Browse/?category={self}'
+
 
 class movie(models.Model):
     category=models.ManyToManyField(Categories,related_name="categories")
@@ -60,6 +68,11 @@ class movie(models.Model):
 
     class Meta:
         verbose_name_plural = 'Add movies'
+
+
+    def get_absolute_url(self):
+        return f'/detail/{self.slug}'
+
 
 class trending(models.Model):
     poster_landscape=models.URLField(max_length=900)

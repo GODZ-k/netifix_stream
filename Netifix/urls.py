@@ -22,11 +22,18 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.views.generic.base import TemplateView
 
+# sitemap
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import StaticViewSitemap,PostViewSitemap,CategoryViewSitemap,TagsViewSitemap
+
 # debug = false
 from django.views.static import serve
 from django.urls import re_path
 
+
+sitemaps = {'static': StaticViewSitemap,'product': PostViewSitemap,'category':CategoryViewSitemap,'Tags':TagsViewSitemap}
 urlpatterns = [
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),),
 
     # fake admin pannel

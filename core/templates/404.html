@@ -1,57 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>404 - Page Not Found</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
+        /*======================
+    404 page
+=======================*/
+
+        .page_404 {
+            padding: 40px 0;
+            background: #fff;
+            font-family: "Arvo", serif;
             height: 100vh;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
         }
 
-        .container {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            background-color: #fff;
+        .page_404 img {
+            width: 100%;
+            background-repeat: no-repeat;
+            object-fit: cover;
+        }
+
+        .four_zero_four_bg {
+            background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+            height: clamp(380px, 20vw, 400px);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .four_zero_four_bg h1 {
             text-align: center;
-            padding: 20px;
-            border-radius: 5px;
+            color: #4c4848;
+            font-size: clamp(60px, 8vw, 80px);
         }
 
-        h1 {
-            font-size: 48px;
-            color: #e74c3c;
-            margin: 0;
+        .four_zero_four_bg h3 {
+            text-align: center;
+            font-size: 80px;
         }
 
-        p {
-            font-size: 18px;
-            color: #333;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        a {
+        .link_404 {
+            color: #fff !important;
+            padding: 10px 20px;
+            background: #39ac31;
             text-decoration: none;
-            color: #3498db;
+            display: inline-block;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .contant_box_404 {
+            margin-top: -50px;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>404</h1>
-        <p>Page Not Found</p>
-        <p>The requested page could not be found on the server. Please check the URL or navigate back to the <a href="{% url 'home' %}">home page</a>.</p>
-    </div>
+    <section class="page_404">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="col-sm-10 col-sm-offset-1  text-center">
+                        <div class="four_zero_four_bg">
+                            <h1 class="text-center ">404</h1>
+
+                        </div>
+
+                        <div class="contant_box_404">
+                            <h3 class="h2">
+                                Look like you're lost
+                            </h3>
+
+                            <p>the page you are looking for not avaible!</p>
+
+                            <a href="{% url 'home' %}" class="link_404">Go to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>

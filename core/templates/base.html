@@ -6,8 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block meta %}
-    {% block title %}
-    {% endblock title %}
     {% endblock meta %}
     <link rel="icon" href="/media/netifix.png">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
@@ -37,7 +35,7 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="https://kit.fontawesome.com/5df2e58af9.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <title>Netifix</title>
+    <title>{% block title %}  {% endblock title %}</title>
 </head>
 
 <body style="background-color: #161616;">

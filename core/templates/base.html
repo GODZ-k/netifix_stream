@@ -5,6 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
+    {% block title %}
+    {% endblock title %}
+    {% endblock meta %}
     <link rel="icon" href="/media/netifix.png">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/movie.css' %}">
